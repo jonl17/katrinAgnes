@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Helvetica Neue Bd";
+  src: url("./Helvetica_Neue/HelveticaNeueLTStd-Bd.otf");
+}
+@font-face {
+  font-family: "Helvetica Neue BdIt";
+  src: url("./Helvetica_Neue/HelveticaNeueLTStd-BdIt.otf");
+}
+* {
+  font-family: "Helvetica Neue Bd";
+  font-weight: normal;
+}

@@ -1,0 +1,9 @@
+.Theme-container {
+  height: 100000vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 35px;
+}

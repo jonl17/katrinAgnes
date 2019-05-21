@@ -1,0 +1,17 @@
+.Information-container {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.Information-text {
+  font-size: 25px;
+  text-transform: lowercase;
+  margin: 0;
+  padding: 35px;
+}
+.Information-text-two {
+  text-align: right;
+}
