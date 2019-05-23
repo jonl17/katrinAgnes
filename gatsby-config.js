@@ -4,5 +4,17 @@ module.exports = {
     email: `katrinagnes@gmail.com`,
   },
 
-  plugins: [],
+  plugins: [
+    /* filesystem */
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `temp`,
+        path: `${__dirname}/static/temp/`,
+      },
+    },
+    /* gatsby image */
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+  ],
 }
