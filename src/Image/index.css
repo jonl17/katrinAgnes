@@ -9,8 +9,7 @@
   height: 400px;
   width: 200px;
 }
-.Art-image {
-}
+
 .gatsby-image-wrapper img {
   object-fit: contain !important;
 }
