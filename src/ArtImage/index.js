@@ -10,7 +10,7 @@ class ArtImage extends React.Component {
         super(props)
         this.state = {
             images: this.props.images.allFile.edges,
-            maxScroll: window.innerHeight - 100,
+            maxScroll: 0,
             posX: 0,
             index: 0,
             displayedImages: [], // images to stick
@@ -18,7 +18,11 @@ class ArtImage extends React.Component {
         }
         this.drawCanvas = this.drawCanvas.bind(this)
     }
-
+    componentDidMount() {
+        this.setState({
+            maxScroll: window.innerHeight - 100,
+        })
+    }
     appendDisplayedImages(image) {
         const list = [...this.state.displayedImages, image]
         this.setState({
@@ -54,7 +58,7 @@ class ArtImage extends React.Component {
                     maxHeight: 400,
                     maxWidth: 400,
                     position: "fixed",
-                    top: window.innerHeight,
+                    top: this.state.maxScroll + 100,
                     left: `${this.state.displayedImagesCords[index].x}%`,
                     transform: `translateY(-${
                         this.state.displayedImagesCords[index].y
@@ -122,6 +126,7 @@ class ArtImage extends React.Component {
                         return (
                             <>
                                 <Image
+                                    maxHeight={this.state.maxScroll}
                                     x={x}
                                     y={y}
                                     fluid={
