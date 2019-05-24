@@ -30,11 +30,21 @@ class ArtImage extends React.Component {
         this.setState({
             displayedImagesCords: list,
         })
-        console.log(list)
+    }
+    removeDisplayedImage(index) {
+        const list = [...this.state.displayedImages]
+        const cordList = [...this.state.displayedImagesCords]
+        // list.splice(index, 1)
+        list.pop()
+        cordList.pop()
+        /* it is important to update both lists in the state */
+        this.setState({
+            displayedImages: list,
+            displayedImagesCords: cordList,
+        })
     }
     drawCanvas() {
         /* draws images to the screen that shall be displayed */
-        console.log(this.state.displayedImagesCords)
         return this.state.displayedImages.map((item, index) => (
             <Img
                 key={index}
@@ -60,7 +70,7 @@ class ArtImage extends React.Component {
         return (
             <>
                 {this.drawCanvas() /* this function is quite fantastic, displays images that should stick */}
-                <Stickyroll pages={this.state.images} factor={5}>
+                <Stickyroll pages={this.state.images} factor={3}>
                     {({ page, pageIndex, pages, progress }) => {
                         var y = progress * 1000
                         var x = page * 10
@@ -95,6 +105,17 @@ class ArtImage extends React.Component {
                                 this.setState({
                                     posX: x,
                                 })
+                            }
+                        }
+                        if (y < this.state.maxScroll) {
+                            if (
+                                this.state.displayedImages[pageIndex] !==
+                                undefined
+                                /* if an image exists on this index */
+                            ) {
+                                /* remove it sir! */
+
+                                this.removeDisplayedImage(pageIndex)
                             }
                         }
 
