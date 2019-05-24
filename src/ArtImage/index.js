@@ -35,8 +35,8 @@ class ArtImage extends React.Component {
         const list = [...this.state.displayedImages]
         const cordList = [...this.state.displayedImagesCords]
         // list.splice(index, 1)
-        list.pop()
-        cordList.pop()
+        list.splice(index, 1)
+        cordList.splice(index, 1)
         /* it is important to update both lists in the state */
         this.setState({
             displayedImages: list,
@@ -72,7 +72,7 @@ class ArtImage extends React.Component {
                 {this.drawCanvas() /* this function is quite fantastic, displays images that should stick */}
                 <Stickyroll pages={this.state.images} factor={3}>
                     {({ page, pageIndex, pages, progress }) => {
-                        var y = progress * 1000
+                        var y = progress * 850
                         var x = page * 10
                         if (this.state.posX !== x) {
                             this.setState({
