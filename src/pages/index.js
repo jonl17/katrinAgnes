@@ -22,6 +22,7 @@ export const AllImages = graphql`
       edges {
         node {
           id
+          name
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid

@@ -1,6 +1,5 @@
 import React from "react"
 import "./index.css"
-import Img from "gatsby-image"
 
 class StickyImages extends React.Component {
   constructor(props) {
@@ -8,7 +7,7 @@ class StickyImages extends React.Component {
     this.handleHover = this.handleHover.bind(this)
     this.state = {
       windowWidth: 0,
-      negative: false,
+      negative: false /* this is a helper so we get a  spread from negative to positive y values */,
     }
     this.negativePositive = this.negativePositive.bind(this)
   }
@@ -49,6 +48,7 @@ class StickyImages extends React.Component {
       <div className="Image-container">
         {edges.map((image, index) => (
           <img
+            alt={image.node.name}
             key={image.node.id}
             style={{
               ...style,
