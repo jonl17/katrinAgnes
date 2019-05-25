@@ -1,6 +1,4 @@
-.gatsby-image-wrapper,
-a {
-  height: 100vh;
+img {
   position: -webkit-sticky !important;
   position: sticky !important;
   top: 0;
@@ -8,11 +6,10 @@ a {
 }
 .Image-container {
   display: grid;
-  justify-content: space-around;
-  align-items: center;
   flex-direction: column;
   grid-gap: 50vh;
   grid-template-rows: repeat(1, 1fr);
+  padding-bottom: 200px; /* this is so the last image doesn't stick to bottom of page */
 }
 .Image-block:hover {
   cursor: pointer;

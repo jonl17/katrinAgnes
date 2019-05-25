@@ -1,19 +1,39 @@
 import React from "react"
 import "./index.css"
 import Img from "gatsby-image"
-import BackgroundImage from "gatsby-background-image"
 
 class StickyImages extends React.Component {
   constructor(props) {
     super(props)
     this.handleHover = this.handleHover.bind(this)
+    this.state = {
+      windowWidth: 0,
+      negative: false,
+    }
+    this.negativePositive = this.negativePositive.bind(this)
+  }
+  componentDidMount() {
+    this.setState({
+      windowWidth: window.innerWidth - window.innerWidth / 3,
+    })
   }
   handleHover() {
     console.log("HOVERING IMAGE NOW")
   }
+  negativePositive(num) {
+    if (this.state.negative) {
+      this.setState({
+        negative: true,
+      })
+      this.setState({
+        negative: false,
+      })
+      return num * -1
+    }
+    return num
+  }
   render() {
     const style = {
-      height: `100vh`,
       position: `sticky !important`,
       top: 0,
       maxHeight: 500,
@@ -24,31 +44,24 @@ class StickyImages extends React.Component {
       maxHeight: 500,
       objectFit: `contain`,
     }
-    const tops = [100, 50, 25, 75, 125]
-    const lefts = [`50%`, `25%`, `-25%`, `2%`, `-40%`, `5%`]
     const { edges } = this.props.data.allFile
     return (
       <div className="Image-container">
         {edges.map((image, index) => (
-          <a>
-            <Img
-              key={image.node.id}
-              style={{ ...style, overflow: `visable` }}
-              imgStyle={{
-                ...imageStyle,
-                transform: `translate(${lefts[index]}, ${tops[index]}px)`,
-                height: `auto`,
-              }}
-              fluid={image.node.childImageSharp.fluid}
-            />
-          </a>
-          //   <BackgroundImage
-          //     style={{
-          //       ...style,
-          //       transform: `translate(${lefts[index]}, ${tops[index]}px)`,
-          //     }}
-          //     fluid={image.node.childImageSharp.fluid}
-          //   />
+          <img
+            key={image.node.id}
+            style={{
+              ...style,
+              ...imageStyle,
+              transform: `translate(${Math.floor(
+                Math.random() * (this.state.windowWidth - +0)
+              ) + +0}px, ${this.negativePositive(
+                Math.floor(Math.random() * (200 - +0)) + +0
+              )}px)`,
+              height: `auto`,
+            }}
+            src={image.node.childImageSharp.fluid.src}
+          />
         ))}
       </div>
     )
