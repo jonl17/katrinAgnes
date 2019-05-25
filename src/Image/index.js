@@ -18,6 +18,7 @@ class Image extends React.Component {
   }
   render() {
     return (
+      /* slack is good */
       <img
         onMouseOver={event => this.handleHover(event)}
         alt={this.props.alt}
