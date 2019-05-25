@@ -28,6 +28,7 @@ class Image extends React.Component {
     return (
       /* slack is good */
       <img
+        onClick={console.log(this.state.name)}
         onMouseOver={event => this.handleHover(event)}
         onMouseOut={() => this.handleOut()}
         alt={this.props.alt}

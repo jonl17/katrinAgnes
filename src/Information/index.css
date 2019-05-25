@@ -5,6 +5,11 @@
   bottom: 0;
   display: grid;
   grid-template-columns: 50% 50%;
+  background-image: repeating-radial-gradient(
+    rgb(255, 255, 255, 0.1),
+    rgb(240, 240, 240, 0.1),
+    rgb(16, 16, 16, 0.1)
+  );
 }
 .Information-text {
   font-size: 25px;

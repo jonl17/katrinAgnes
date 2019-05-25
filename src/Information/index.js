@@ -3,7 +3,6 @@ import "./index.css"
 import { connect } from "react-redux"
 
 const Information = props => {
-  console.log(props)
   return (
     <div className="Information-container">
       <h1 className="Information-text Information-text-one">
