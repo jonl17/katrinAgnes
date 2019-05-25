@@ -1,18 +1,16 @@
 import React from "react"
-import Theme from "../Theme"
 import Information from "../Information"
-import ArtImg from "../ArtImage"
-import TestImg from "../../static/temp/work1.png"
-import Frame from "../Frame"
+import "./index.css"
+import "./fonts.css"
 import { graphql } from "gatsby"
+import StickyImages from "../StickyImages"
 
 const index = ({ data }) => {
   return (
-    <Theme>
-      <Frame />
-      <ArtImg images={data} image={TestImg} move={true} />
+    <>
+      <StickyImages data={data} />
       <Information info={"Info"} workTitle={"Work Title 2015"} />
-    </Theme>
+    </>
   )
 }
 
@@ -23,9 +21,11 @@ export const AllImages = graphql`
     allFile {
       edges {
         node {
+          id
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
+              src
             }
           }
         }
