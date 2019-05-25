@@ -1,10 +1,10 @@
 import React from "react"
 import "./index.css"
+import Image from "../Image"
 
 class StickyImages extends React.Component {
   constructor(props) {
     super(props)
-    this.handleHover = this.handleHover.bind(this)
     this.state = {
       windowWidth: 0,
       negative: false /* this is a helper so we get a  spread from negative to positive y values */,
@@ -16,9 +16,7 @@ class StickyImages extends React.Component {
       windowWidth: window.innerWidth - window.innerWidth / 3,
     })
   }
-  handleHover() {
-    console.log("HOVERING IMAGE NOW")
-  }
+
   negativePositive(num) {
     if (this.state.negative) {
       this.setState({
@@ -46,8 +44,8 @@ class StickyImages extends React.Component {
     const { edges } = this.props.data.allFile
     return (
       <div className="Image-container">
-        {edges.map((image, index) => (
-          <img
+        {edges.map(image => (
+          <Image
             alt={image.node.name}
             key={image.node.id}
             style={{
