@@ -12,9 +12,18 @@ class StickyImages extends React.Component {
     this.negativePositive = this.negativePositive.bind(this)
   }
   componentDidMount() {
-    this.setState({
-      windowWidth: window.innerWidth - window.innerWidth / 3,
-    })
+    if (window.innerWidth <= 750) {
+      /* tablet */
+      this.setState({
+        windowWidth: window.innerWidth - window.innerWidth / 2,
+      })
+    } else {
+      let temp =
+        window.innerWidth / 3 /* here it is vital to scale for other screens */
+      this.setState({
+        windowWidth: window.innerWidth - temp,
+      })
+    }
   }
 
   negativePositive(num) {

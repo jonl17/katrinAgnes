@@ -11,7 +11,6 @@ class Image extends React.Component {
       displayTitle: "",
       blank: false,
     }
-    this.handleHover = this.handleHover.bind(this)
   }
   componentDidMount() {
     this.setState({
@@ -24,11 +23,14 @@ class Image extends React.Component {
   handleOut() {
     this.props.dispatch(toggleDisplayTitle(""))
   }
+  handleClick() {
+    console.log(this.state.name)
+  }
   render() {
     return (
       /* slack is good */
       <img
-        onClick={console.log(this.state.name)}
+        onClick={() => this.handleClick()}
         onMouseOver={event => this.handleHover(event)}
         onMouseOut={() => this.handleOut()}
         alt={this.props.alt}

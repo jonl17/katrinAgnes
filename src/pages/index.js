@@ -9,7 +9,7 @@ const index = ({ data }) => {
   return (
     <>
       <StickyImages data={data} />
-      <Information info={"Info"} workTitle={"Work Title 2015"} />
+      <Information info={"Information"} workTitle={"Work Title 2015"} />
     </>
   )
 }
