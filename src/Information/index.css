@@ -12,11 +12,13 @@
   );
 }
 .Information-text {
-  font-size: 25px;
   text-transform: lowercase;
   margin: 0;
   padding: 35px;
 }
 .Information-text-two {
   text-align: right;
+}
+.Information-text:hover {
+  cursor: pointer;
 }

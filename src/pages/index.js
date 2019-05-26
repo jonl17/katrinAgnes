@@ -1,16 +1,17 @@
 import React from "react"
+import Wrap from "../Wrap"
 import Information from "../Information"
-import "./index.css"
-import "./fonts.css"
 import { graphql } from "gatsby"
 import StickyImages from "../StickyImages"
+import InfoPage from "../InfoPage"
 
 const index = ({ data }) => {
   return (
-    <>
+    <Wrap>
       <StickyImages data={data} />
+      <InfoPage />
       <Information info={"Information"} workTitle={"Work Title 2015"} />
-    </>
+    </Wrap>
   )
 }
 
