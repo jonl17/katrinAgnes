@@ -12,7 +12,6 @@ class StickyImages extends React.Component {
     this.negativePositive = this.negativePositive.bind(this)
   }
   componentDidMount() {
-    console.log(this.props.data)
     if (window.innerWidth <= 750) {
       /* tablet */
       this.setState({

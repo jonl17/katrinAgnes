@@ -6,7 +6,6 @@ import X from "../../static/icons/x.png"
 
 class WorkDetails extends React.Component {
   render() {
-    console.log(this.props.chosenArtwork)
     return (
       <div
         style={{ display: this.props.detailPageVisable ? "grid" : "none" }}

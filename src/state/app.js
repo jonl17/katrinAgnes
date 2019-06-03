@@ -44,6 +44,7 @@ export const chooseArtwork = chosenArtwork => ({
 export default (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_DISPLAY_TITLE:
+      console.log(action.displayTitle)
       return { ...state, displayTitle: action.displayTitle }
     case SHOW_INFO_PAGE:
       return { ...state, infoPageVisable: action.infoPageVisable }

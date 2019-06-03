@@ -8,10 +8,11 @@ class Image extends React.Component {
     super(props)
     this.state = {
       name: "",
-      displayTitle: "",
+      displayTitle: this.props.displayTitle,
       blank: false,
       visable: this.props.detailPageVisable,
     }
+    this.handleHover = this.handleHover.bind(this)
   }
   componentDidMount() {
     this.setState({
@@ -39,7 +40,7 @@ class Image extends React.Component {
       <img
         className="Sticky-image"
         onClick={() => this.handleClick()}
-        onMouseOver={event => this.handleHover(event)}
+        onMouseOver={() => this.handleHover()}
         onMouseOut={() => this.handleOut()}
         alt={""}
         style={this.props.style}
