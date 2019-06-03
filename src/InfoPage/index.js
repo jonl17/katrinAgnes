@@ -33,6 +33,7 @@ const InfoPage = props => {
         </p>
       </div>
       <img
+        alt={""}
         src={X}
         className="Exit-infopage-btn"
         onClick={() => props.dispatch(showInfoPage(!props.infoPageVisable))}

@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { toggleDisplayTitle } from "../state/app"
+import { toggleDisplayTitle, showDetailPage } from "../state/app"
 import "./index.css"
 
 class Image extends React.Component {
@@ -10,6 +10,7 @@ class Image extends React.Component {
       name: "",
       displayTitle: "",
       blank: false,
+      visable: this.props.detailPageVisable,
     }
   }
   componentDidMount() {
@@ -24,16 +25,17 @@ class Image extends React.Component {
     this.props.dispatch(toggleDisplayTitle(""))
   }
   handleClick() {
-    console.log(this.state.name)
+    this.props.dispatch(showDetailPage(!this.state.visable))
   }
   render() {
     return (
       /* slack is good */
       <img
+        className="Sticky-image"
         onClick={() => this.handleClick()}
         onMouseOver={event => this.handleHover(event)}
         onMouseOut={() => this.handleOut()}
-        alt={this.props.alt}
+        alt={""}
         style={this.props.style}
         src={this.props.src}
       />
@@ -44,6 +46,7 @@ class Image extends React.Component {
 export default connect(
   state => ({
     displayTitle: state.app.displayTitle,
+    detailPageVisable: state.app.detailPageVisable,
   }),
   null
 )(Image)

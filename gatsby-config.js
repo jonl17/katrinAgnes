@@ -20,7 +20,14 @@ module.exports = {
         path: `${__dirname}/static/icons/`,
       },
     },
-    /* gatsby image */
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `tempWorks`,
+        path: `${__dirname}/static/tempWorks/`,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

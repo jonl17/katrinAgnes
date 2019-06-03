@@ -1,0 +1,12 @@
+.WorkDetails-container {
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 25px;
+  background-color: white;
+  z-index: 4;
+  display: none;
+}
