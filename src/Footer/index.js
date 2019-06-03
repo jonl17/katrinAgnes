@@ -3,7 +3,7 @@ import "./index.css"
 import { connect } from "react-redux"
 import { showInfoPage } from "../state/app"
 
-class Information extends React.Component {
+class Footer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -16,13 +16,16 @@ class Information extends React.Component {
   }
   render() {
     return (
-      <div className="Information-container">
-        <p className="Information-text Information-text-one">
-          {this.props.displayTitle}
+      <div className="Footer-container">
+        <p className="Footer-text Footer-text-one">
+          {this.props.detailPageVisable
+            ? this.props.chosenArtwork.title
+            : this.props.displayTitle}
         </p>
         <p
+          style={{ display: this.props.detailPageVisable ? "none" : "block" }}
           onClick={() => this.handleClick()}
-          className="Information-text Information-text-two"
+          className="Footer-text Footer-text-two"
         >
           {this.props.info}
         </p>
@@ -35,6 +38,8 @@ export default connect(
   state => ({
     displayTitle: state.app.displayTitle,
     infoPageVisable: state.app.infoPageVisable,
+    chosenArtwork: state.app.chosenArtwork,
+    detailPageVisable: state.app.detailPageVisable,
   }),
   null
-)(Information)
+)(Footer)

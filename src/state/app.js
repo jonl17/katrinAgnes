@@ -2,7 +2,11 @@ const initialState = {
   displayTitle: "",
   infoPageVisable: false,
   detailPageVisable: false,
-  chosenArt: {},
+  chosenArtwork: {
+    image: "",
+    title: "",
+    originalName: "",
+  },
 }
 
 /* action creator */
@@ -28,6 +32,13 @@ export const showDetailPage = detailPageVisable => ({
   detailPageVisable,
 })
 
+/// iv) set chosen artwork
+const CHOOSE_ARTWORK = "CHOOSE_ARTWORK"
+export const chooseArtwork = chosenArtwork => ({
+  type: CHOOSE_ARTWORK,
+  chosenArtwork,
+})
+
 /* the reducer */
 
 export default (state = initialState, action) => {
@@ -38,6 +49,8 @@ export default (state = initialState, action) => {
       return { ...state, infoPageVisable: action.infoPageVisable }
     case SHOW_DETAIL_PAGE:
       return { ...state, detailPageVisable: action.detailPageVisable }
+    case CHOOSE_ARTWORK:
+      return { ...state, chosenArtwork: action.chosenArtwork }
     default:
       return state
   }

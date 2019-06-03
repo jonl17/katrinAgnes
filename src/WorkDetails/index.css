@@ -5,8 +5,17 @@
   top: 0;
   left: 0;
   box-sizing: border-box;
-  padding: 25px;
+  padding: 25px 25px 100px 25px;
   background-color: white;
-  z-index: 4;
   display: none;
+  grid-template-columns: repeat(2, 0.5fr 1fr);
+  grid-template-areas: "... leftImg rightImg ...";
+}
+.WorkDetails-image {
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
+}
+.image-one {
+  grid-area: leftImg;
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { toggleDisplayTitle, showDetailPage } from "../state/app"
+import { toggleDisplayTitle, showDetailPage, chooseArtwork } from "../state/app"
 import "./index.css"
 
 class Image extends React.Component {
@@ -26,6 +26,12 @@ class Image extends React.Component {
   }
   handleClick() {
     this.props.dispatch(showDetailPage(!this.state.visable))
+    this.props.dispatch(
+      chooseArtwork({
+        image: this.props.src,
+        title: this.state.name,
+      })
+    )
   }
   render() {
     return (
@@ -47,6 +53,7 @@ export default connect(
   state => ({
     displayTitle: state.app.displayTitle,
     detailPageVisable: state.app.detailPageVisable,
+    chosenArtwork: state.app.chosenArtwork,
   }),
   null
 )(Image)

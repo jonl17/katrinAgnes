@@ -12,6 +12,7 @@ class StickyImages extends React.Component {
     this.negativePositive = this.negativePositive.bind(this)
   }
   componentDidMount() {
+    console.log(this.props.data)
     if (window.innerWidth <= 750) {
       /* tablet */
       this.setState({
@@ -24,6 +25,17 @@ class StickyImages extends React.Component {
         windowWidth: window.innerWidth - temp,
       })
     }
+  }
+
+  shuffle(a) {
+    var j, x, i
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1))
+      x = a[i]
+      a[i] = a[j]
+      a[j] = x
+    }
+    return a
   }
 
   negativePositive(num) {
@@ -50,7 +62,7 @@ class StickyImages extends React.Component {
       maxHeight: 500,
       objectFit: `contain`,
     }
-    const { edges } = this.props.data.allFile
+    const edges = this.shuffle(this.props.data.allFile.edges)
     return (
       <div className="Image-container">
         {edges.map(image => (

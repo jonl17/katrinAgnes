@@ -1,6 +1,6 @@
 import React from "react"
 import Wrap from "../Wrap"
-import Information from "../Information"
+import Footer from "../Footer"
 import { graphql } from "gatsby"
 import StickyImages from "../StickyImages"
 import InfoPage from "../InfoPage"
@@ -12,7 +12,7 @@ const index = ({ data }) => {
       <StickyImages data={data} />
       <InfoPage />
       <WorkDetails />
-      <Information info={"Information"} workTitle={"Work Title 2015"} />
+      <Footer info={"Information"} workTitle={"Work Title 2015"} />
     </Wrap>
   )
 }
