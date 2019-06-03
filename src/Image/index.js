@@ -26,13 +26,13 @@ class Image extends React.Component {
     this.props.dispatch(toggleDisplayTitle(""))
   }
   handleClick() {
-    this.props.dispatch(showDetailPage(!this.state.visable))
     this.props.dispatch(
       chooseArtwork({
         image: this.props.src,
         title: this.state.name,
       })
     )
+    this.props.dispatch(showDetailPage(!this.state.visable))
   }
   render() {
     return (
