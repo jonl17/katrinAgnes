@@ -7,48 +7,49 @@ class StickyImages extends React.Component {
     super(props)
     this.state = {
       windowWidth: 0,
-      negative: false /* this is a helper so we get a  spread from negative to positive y values */,
+      negative: true /* this is a helper so we get a  spread from negative to positive y values */,
+      randomWidth: [],
+      randomHeight: [],
     }
-    this.negativePositive = this.negativePositive.bind(this)
+    this.generateRandomPixels = this.generateRandomPixels.bind(this)
   }
   componentDidMount() {
-    if (window.innerWidth <= 750) {
+    const wideLimit = window.innerWidth / 2.5
+    const innerWidth = window.innerWidth
+    if (innerWidth <= 750) {
       /* tablet */
       this.setState({
-        windowWidth: window.innerWidth - window.innerWidth / 2,
+        windowWidth: innerWidth - wideLimit,
       })
     } else {
-      let temp =
-        window.innerWidth / 3 /* here it is vital to scale for other screens */
       this.setState({
-        windowWidth: window.innerWidth - temp,
+        windowWidth: innerWidth - wideLimit,
       })
     }
+    const rndW = this.generateRandomPixels(innerWidth - wideLimit)
+    const rndH = this.generateRandomPixels(200)
+    /* here we need to set some absolute height numbers */
+    rndH[rndH.length - 1] = -100
+    rndH[rndH.length - 3] = 400
+    this.setState({
+      randomWidth: rndW,
+      randomHeight: rndH,
+    })
   }
 
-  shuffle(a) {
-    var j, x, i
-    for (i = a.length - 1; i > 0; i--) {
-      j = Math.floor(Math.random() * (i + 1))
-      x = a[i]
-      a[i] = a[j]
-      a[j] = x
+  generateRandomPixels(limit) {
+    var pixels = []
+    for (let i = 0; i < this.props.data.allFile.edges.length; i++) {
+      pixels.push(this.randInt(limit))
     }
-    return a
+
+    return pixels
   }
 
-  negativePositive(num) {
-    if (this.state.negative) {
-      this.setState({
-        negative: true,
-      })
-      this.setState({
-        negative: false,
-      })
-      return num * -1
-    }
-    return num
+  randInt(limit) {
+    return Math.floor(Math.random() * (limit - +0))
   }
+
   render() {
     const style = {
       position: `sticky !important`,
@@ -63,20 +64,20 @@ class StickyImages extends React.Component {
     }
     // const edges = this.shuffle(this.props.data.allFile.edges)
     const { edges } = this.props.data.allFile
+    const { randomWidth, randomHeight } = this.state
+    console.log(randomHeight)
     return (
       <div className="Image-container">
-        {edges.map(image => (
+        {edges.map((image, index) => (
           <Image
             alt={image.node.name}
             key={image.node.id}
             style={{
               ...style,
               ...imageStyle,
-              transform: `translate(${Math.floor(
-                Math.random() * (this.state.windowWidth - +0)
-              ) + +0}px, ${this.negativePositive(
-                Math.floor(Math.random() * (200 - +0)) + +0
-              )}px)`,
+              transform: `translate(${randomWidth[index]}px, ${
+                randomHeight[index]
+              }px)`,
               height: `auto`,
             }}
             src={image.node.childImageSharp.fluid.src}
