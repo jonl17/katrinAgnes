@@ -61,7 +61,8 @@ class StickyImages extends React.Component {
       maxHeight: 500,
       objectFit: `contain`,
     }
-    const edges = this.shuffle(this.props.data.allFile.edges)
+    // const edges = this.shuffle(this.props.data.allFile.edges)
+    const { edges } = this.props.data.allFile
     return (
       <div className="Image-container">
         {edges.map(image => (
