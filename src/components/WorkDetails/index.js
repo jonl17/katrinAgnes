@@ -3,16 +3,16 @@ import "./index.css"
 import { connect } from "react-redux"
 import { showDetailPage } from "../../state/app"
 
+import WorkDetailsContainer from "./Views/WorkDetailsContainer"
 import ExitButton from "../ExitButton"
 
 class WorkDetails extends React.Component {
   render() {
     return (
-      <div
-        style={{ display: this.props.detailPageVisable ? "grid" : "none" }}
-        className="WorkDetails-container"
+      <WorkDetailsContainer
+        display={this.props.detailPageVisable ? "grid" : "none"}
       >
-        <img
+        <img /* TODO */
           alt={""}
           className="WorkDetails-image image-one"
           src={this.props.chosenArtwork.image}
@@ -22,7 +22,7 @@ class WorkDetails extends React.Component {
             this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
           }
         />
-      </div>
+      </WorkDetailsContainer>
     )
   }
 }

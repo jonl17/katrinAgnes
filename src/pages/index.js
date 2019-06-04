@@ -7,21 +7,17 @@ import StickyImages from "../components/StickyImages"
 import InfoPage from "../components/InfoPage"
 import WorkDetails from "../components/WorkDetails"
 
-const index = ({ data }) => {
-  return (
-    <Wrap>
-      <StickyImages data={data} />
-      <InfoPage />
-      <WorkDetails />
-      <Footer info={"Information"} workTitle={"Work Title 2015"} />
-    </Wrap>
-  )
-}
-
-export default index
+export default ({ data }) => (
+  <Wrap>
+    <StickyImages data={data} />
+    <InfoPage />
+    <WorkDetails />
+    <Footer info={"Information"} workTitle={"Work Title 2015"} />
+  </Wrap>
+)
 
 export const AllImages = graphql`
-  query {
+  query testerTemper {
     allFile(filter: { sourceInstanceName: { eq: "temp" } }) {
       edges {
         node {
