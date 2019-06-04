@@ -1,10 +1,11 @@
 import React from "react"
-import Wrap from "../Wrap"
-import Footer from "../Footer"
 import { graphql } from "gatsby"
-import StickyImages from "../StickyImages"
-import InfoPage from "../InfoPage"
-import WorkDetails from "../WorkDetails"
+
+import Wrap from "../components/Wrap"
+import Footer from "../components/Footer"
+import StickyImages from "../components/StickyImages"
+import InfoPage from "../components/InfoPage"
+import WorkDetails from "../components/WorkDetails"
 
 const index = ({ data }) => {
   return (

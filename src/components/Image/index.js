@@ -1,7 +1,12 @@
 import React from "react"
 import { connect } from "react-redux"
-import { toggleDisplayTitle, showDetailPage, chooseArtwork } from "../state/app"
-import "./index.css"
+import {
+  toggleDisplayTitle,
+  showDetailPage,
+  chooseArtwork,
+} from "../../state/app"
+
+import IMG from "./Views/IMG"
 
 class Image extends React.Component {
   constructor(props) {
@@ -21,28 +26,25 @@ class Image extends React.Component {
   }
   handleHover() {
     this.props.dispatch(toggleDisplayTitle(this.state.name))
-  }
-  handleOut() {
-    this.props.dispatch(toggleDisplayTitle(""))
-  }
-  handleClick() {
     this.props.dispatch(
       chooseArtwork({
         image: this.props.src,
         title: this.state.name,
       })
     )
+  }
+  handleOut() {
+    this.props.dispatch(toggleDisplayTitle(""))
+  }
+  handleClick() {
     this.props.dispatch(showDetailPage(!this.state.visable))
   }
   render() {
     return (
-      /* slack is good */
-      <img
-        className="Sticky-image"
-        onClick={() => this.handleClick()}
-        onMouseOver={() => this.handleHover()}
-        onMouseOut={() => this.handleOut()}
-        alt={""}
+      <IMG
+        handleClick={() => this.handleClick()}
+        handleHover={() => this.handleHover()}
+        handleOut={() => this.handleOut()}
         style={this.props.style}
         src={this.props.src}
       />

@@ -1,8 +1,8 @@
 import React from "react"
 import "./index.css"
 import { connect } from "react-redux"
-import { showDetailPage } from "../state/app"
-import X from "../../static/icons/x.png"
+import { showDetailPage } from "../../state/app"
+import X from "../../../static/icons/x.png"
 
 class WorkDetails extends React.Component {
   render() {

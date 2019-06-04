@@ -58,7 +58,7 @@ class StickyImages extends React.Component {
       backgroundSize: `contain`,
     }
     const imageStyle = {
-      width: 400,
+      width: `25vw`,
       maxHeight: 500,
       objectFit: `contain`,
     }

@@ -1,14 +1,15 @@
 import React from "react"
 import "./index.css"
 import { connect } from "react-redux"
-import { showInfoPage } from "../state/app"
+import { showInfoPage } from "../../state/app"
+
+import FooterContainer from "./Views/FooterContainer"
+import FooterLeft from "./Views/FooterLeft"
+import FooterRight from "./Views/FooterRight"
 
 class Footer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      visable: this.props.infoPageVisable,
-    }
     this.handleClick = this.handleClick.bind(this)
   }
   handleClick() {
@@ -16,20 +17,20 @@ class Footer extends React.Component {
   }
   render() {
     return (
-      <div className="Footer-container">
-        <p className="Footer-text Footer-text-one">
-          {this.props.detailPageVisable
-            ? this.props.chosenArtwork.title
-            : this.props.displayTitle}
-        </p>
-        <p
-          style={{ display: this.props.detailPageVisable ? "none" : "block" }}
+      <FooterContainer>
+        <FooterLeft
+          title={
+            this.props.detailPageVisable
+              ? this.props.chosenArtwork.title
+              : this.props.displayTitle
+          }
+        />
+        <FooterRight
+          display={this.props.detailPageVisable ? "none" : "block"}
           onClick={() => this.handleClick()}
-          className="Footer-text Footer-text-two"
-        >
-          {this.props.info}
-        </p>
-      </div>
+          info={this.props.info}
+        />
+      </FooterContainer>
     )
   }
 }

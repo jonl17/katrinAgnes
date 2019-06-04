@@ -1,0 +1,8 @@
+.Footer-text {
+  text-transform: lowercase;
+  margin: 0;
+  padding: 35px;
+}
+.Footer-text:hover {
+  cursor: pointer;
+}
