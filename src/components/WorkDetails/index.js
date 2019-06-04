@@ -2,7 +2,8 @@ import React from "react"
 import "./index.css"
 import { connect } from "react-redux"
 import { showDetailPage } from "../../state/app"
-import X from "../../../static/icons/x.png"
+
+import ExitButton from "../ExitButton"
 
 class WorkDetails extends React.Component {
   render() {
@@ -16,11 +17,8 @@ class WorkDetails extends React.Component {
           className="WorkDetails-image image-one"
           src={this.props.chosenArtwork.image}
         />
-        <img
-          alt={""}
-          src={X}
-          className="Exit-infopage-btn"
-          onClick={() =>
+        <ExitButton
+          handleClick={() =>
             this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
           }
         />

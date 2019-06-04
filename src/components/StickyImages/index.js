@@ -1,5 +1,9 @@
 import React from "react"
 import "./index.css"
+
+import { generateRandomPixels } from "../../methods"
+
+import ImageContainer from "./Views/ImageContainer"
 import Image from "../Image"
 
 class StickyImages extends React.Component {
@@ -10,10 +14,14 @@ class StickyImages extends React.Component {
       negative: true /* this is a helper so we get a  spread from negative to positive y values */,
       randomWidth: [],
       randomHeight: [],
+      length: 0,
     }
-    this.generateRandomPixels = this.generateRandomPixels.bind(this)
   }
   componentDidMount() {
+    // this.setState({
+    //   length: this.props.data.allFile.edges.length,
+    // })
+    const len = this.props.data.allFile.edges.length
     const wideLimit = window.innerWidth / 2.5
     const innerWidth = window.innerWidth
     if (innerWidth <= 750) {
@@ -26,8 +34,8 @@ class StickyImages extends React.Component {
         windowWidth: innerWidth - wideLimit,
       })
     }
-    const rndW = this.generateRandomPixels(innerWidth - wideLimit)
-    const rndH = this.generateRandomPixels(200)
+    const rndW = generateRandomPixels(innerWidth - wideLimit, len)
+    const rndH = generateRandomPixels(200, len)
     /* here we need to set some absolute height numbers */
     rndH[rndH.length - 1] = -100
     rndH[rndH.length - 3] = 400
@@ -35,19 +43,6 @@ class StickyImages extends React.Component {
       randomWidth: rndW,
       randomHeight: rndH,
     })
-  }
-
-  generateRandomPixels(limit) {
-    var pixels = []
-    for (let i = 0; i < this.props.data.allFile.edges.length; i++) {
-      pixels.push(this.randInt(limit))
-    }
-
-    return pixels
-  }
-
-  randInt(limit) {
-    return Math.floor(Math.random() * (limit - +0))
   }
 
   render() {
@@ -65,9 +60,8 @@ class StickyImages extends React.Component {
     // const edges = this.shuffle(this.props.data.allFile.edges)
     const { edges } = this.props.data.allFile
     const { randomWidth, randomHeight } = this.state
-    console.log(randomHeight)
     return (
-      <div className="Image-container">
+      <ImageContainer>
         {edges.map((image, index) => (
           <Image
             alt={image.node.name}
@@ -83,7 +77,7 @@ class StickyImages extends React.Component {
             src={image.node.childImageSharp.fluid.src}
           />
         ))}
-      </div>
+      </ImageContainer>
     )
   }
 }

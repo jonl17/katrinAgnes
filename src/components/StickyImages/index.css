@@ -4,13 +4,6 @@
   top: 0;
   width: 30vw;
 }
-.Image-container {
-  overflow: visable;
-  display: grid;
-  flex-direction: column;
-  grid-gap: 50vh;
-  grid-template-rows: repeat(1, 1fr);
-}
 .Image-block:hover {
   cursor: pointer;
 }
