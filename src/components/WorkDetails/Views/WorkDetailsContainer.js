@@ -7,11 +7,11 @@ const style = {
   top: 0,
   left: 0,
   boxSizing: `border-box`,
-  padding: `25px 100px 100px 100px`,
+  padding: `25px 200px 100px 200px`,
   backgroundColor: `white`,
   display: `none`,
-  gridTemplateColumns: `1fr 1fr`,
-  gridTemplateAreas: `"... leftImg rightImg ..."`,
+  alignContent: `center`,
+  justifyContent: `space-evenly`,
   gridGap: `50px`,
 }
 
