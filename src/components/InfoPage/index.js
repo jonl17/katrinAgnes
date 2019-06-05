@@ -8,25 +8,21 @@ import InfoPageLeft from "./Views/InfopageLeft"
 import InfoPageCenter from "./Views/InfoPageCenter"
 import ExitButton from "../ExitButton"
 
-const InfoPage = props => {
+const InfoPage = ({ infoPageVisable, dispatch, data }) => {
+  const { title, email } = data.siteMetadata
   return (
-    <InfoPageContainer display={props.infoPageVisable ? "grid" : "none"}>
-      <InfoPageLeft
-        name={"Katrín Brugge"}
-        email={"Sven@Svencock.com"}
-        instagram={"link to insta"}
-      />
+    <InfoPageContainer display={infoPageVisable ? "grid" : "none"}>
+      <InfoPageLeft name={title} email={email} instagram={"instagram"} />
       <InfoPageCenter biography={"biography..."} />
       <ExitButton
-        handleClick={() => props.dispatch(showInfoPage(!props.infoPageVisable))}
+        handleClick={() => dispatch(showInfoPage(!infoPageVisable))}
       />
     </InfoPageContainer>
   )
 }
 
-export default connect(
-  state => ({
-    infoPageVisable: state.app.infoPageVisable,
-  }),
-  null
-)(InfoPage)
+const mapStateToProps = state => ({
+  infoPageVisable: state.app.infoPageVisable,
+})
+
+export default connect(mapStateToProps)(InfoPage)

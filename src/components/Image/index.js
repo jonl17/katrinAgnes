@@ -9,42 +9,23 @@ import {
 import IMG from "./Views/IMG"
 
 class Image extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      name: "",
-      displayTitle: this.props.displayTitle,
-      blank: false,
-      visable: this.props.detailPageVisable,
-    }
-    this.handleHover = this.handleHover.bind(this)
-  }
-  componentDidMount() {
-    this.setState({
-      name: this.props.alt,
-    })
-  }
   handleHover() {
-    this.props.dispatch(toggleDisplayTitle(this.state.name))
+    this.props.dispatch(toggleDisplayTitle(this.props.alt))
     this.props.dispatch(
       chooseArtwork({
         image: this.props.src,
-        title: this.state.name,
+        title: this.props.alt,
       })
     )
-  }
-  handleOut() {
-    this.props.dispatch(toggleDisplayTitle(""))
-  }
-  handleClick() {
-    this.props.dispatch(showDetailPage(!this.state.visable))
   }
   render() {
     return (
       <IMG
-        handleClick={() => this.handleClick()}
+        handleClick={() =>
+          this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
+        }
         handleHover={() => this.handleHover()}
-        handleOut={() => this.handleOut()}
+        handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
         style={this.props.style}
         src={this.props.src}
       />
@@ -52,11 +33,10 @@ class Image extends React.Component {
   }
 }
 
-export default connect(
-  state => ({
-    displayTitle: state.app.displayTitle,
-    detailPageVisable: state.app.detailPageVisable,
-    chosenArtwork: state.app.chosenArtwork,
-  }),
-  null
-)(Image)
+const mapStateToProps = state => ({
+  displayTitle: state.app.displayTitle,
+  detailPageVisable: state.app.detailPageVisable,
+  chosenArtwork: state.app.chosenArtwork,
+})
+
+export default connect(mapStateToProps)(Image)

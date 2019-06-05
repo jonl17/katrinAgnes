@@ -7,6 +7,8 @@ const initialState = {
     title: "",
     originalName: "",
   },
+  randomWidth: [],
+  randomHeight: [],
 }
 
 /* action creator */
@@ -32,11 +34,24 @@ export const showDetailPage = detailPageVisable => ({
   detailPageVisable,
 })
 
-/// iv) set chosen artwork
+// iv) set chosen artwork
 const CHOOSE_ARTWORK = "CHOOSE_ARTWORK"
 export const chooseArtwork = chosenArtwork => ({
   type: CHOOSE_ARTWORK,
   chosenArtwork,
+})
+
+// v.1) fill random width pixel array
+const FILL_XCORD_ARRAY = "FILL_XCORD_ARRAY"
+export const fillXcordArray = randomWidth => ({
+  type: FILL_XCORD_ARRAY,
+  randomWidth,
+})
+// v.2) fill random height pixel array
+const FILL_YCORD_ARRAY = "FILL_YCORD_ARRAY"
+export const fillYcordArray = randomHeight => ({
+  type: FILL_YCORD_ARRAY,
+  randomHeight,
 })
 
 /* the reducer */
@@ -51,6 +66,10 @@ export default (state = initialState, action) => {
       return { ...state, detailPageVisable: action.detailPageVisable }
     case CHOOSE_ARTWORK:
       return { ...state, chosenArtwork: action.chosenArtwork }
+    case FILL_XCORD_ARRAY:
+      return { ...state, randomWidth: action.randomWidth }
+    case FILL_YCORD_ARRAY:
+      return { ...state, randomHeight: action.randomHeight }
     default:
       return state
   }

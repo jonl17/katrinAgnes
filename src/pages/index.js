@@ -10,7 +10,7 @@ import WorkDetails from "../components/WorkDetails"
 export default ({ data }) => (
   <Wrap>
     <StickyImages data={data} />
-    <InfoPage />
+    <InfoPage data={data.site} />
     <WorkDetails />
     <Footer info={"Information"} workTitle={"Work Title 2015"} />
   </Wrap>
@@ -30,6 +30,12 @@ export const AllImages = graphql`
             }
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        email
       }
     }
   }

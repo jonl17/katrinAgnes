@@ -1,48 +1,22 @@
 import React from "react"
 import "./index.css"
 
+import { connect } from "react-redux"
 import { generateRandomPixels } from "../../methods"
+import { fillXcordArray, fillYcordArray } from "../../state/app"
 
 import ImageContainer from "./Views/ImageContainer"
 import Image from "../Image"
 
 class StickyImages extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      windowWidth: 0,
-      negative: true /* this is a helper so we get a  spread from negative to positive y values */,
-      randomWidth: [],
-      randomHeight: [],
-      length: 0,
-    }
-  }
   componentDidMount() {
-    // this.setState({
-    //   length: this.props.data.allFile.edges.length,
-    // })
     const len = this.props.data.allFile.edges.length
     const wideLimit = window.innerWidth / 2.5
     const innerWidth = window.innerWidth
-    if (innerWidth <= 750) {
-      /* tablet */
-      this.setState({
-        windowWidth: innerWidth - wideLimit,
-      })
-    } else {
-      this.setState({
-        windowWidth: innerWidth - wideLimit,
-      })
-    }
-    const rndW = generateRandomPixels(innerWidth - wideLimit, len)
-    const rndH = generateRandomPixels(200, len)
-    /* here we need to set some absolute height numbers */
-    rndH[rndH.length - 1] = -100
-    rndH[rndH.length - 3] = 400
-    this.setState({
-      randomWidth: rndW,
-      randomHeight: rndH,
-    })
+    this.props.dispatch(
+      fillXcordArray(generateRandomPixels(innerWidth - wideLimit, len, false))
+    )
+    this.props.dispatch(fillYcordArray(generateRandomPixels(200, len, true)))
   }
 
   render() {
@@ -57,9 +31,8 @@ class StickyImages extends React.Component {
       maxHeight: 500,
       objectFit: `contain`,
     }
-    // const edges = this.shuffle(this.props.data.allFile.edges)
     const { edges } = this.props.data.allFile
-    const { randomWidth, randomHeight } = this.state
+    const { randomWidth, randomHeight } = this.props
     return (
       <ImageContainer>
         {edges.map((image, index) => (
@@ -82,4 +55,9 @@ class StickyImages extends React.Component {
   }
 }
 
-export default StickyImages
+const mapStateToProps = state => ({
+  randomWidth: state.app.randomWidth,
+  randomHeight: state.app.randomHeight,
+})
+
+export default connect(mapStateToProps)(StickyImages)
