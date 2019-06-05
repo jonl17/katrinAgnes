@@ -9,11 +9,11 @@ import InfoPageCenter from "./Views/InfoPageCenter"
 import ExitButton from "../ExitButton"
 
 const InfoPage = ({ infoPageVisable, dispatch, data }) => {
-  const { title, email } = data.siteMetadata
+  const { title, email, bio } = data.siteMetadata
   return (
     <InfoPageContainer display={infoPageVisable ? "grid" : "none"}>
       <InfoPageLeft name={title} email={email} instagram={"instagram"} />
-      <InfoPageCenter biography={"biography..."} />
+      <InfoPageCenter biography={bio} />
       <ExitButton
         handleClick={() => dispatch(showInfoPage(!infoPageVisable))}
       />

@@ -27,6 +27,7 @@ export const AllImages = graphql`
             technique
             year
             images {
+              id
               childImageSharp {
                 fluid {
                   ...GatsbyImageSharpFluid
@@ -48,6 +49,7 @@ export const AllImages = graphql`
       siteMetadata {
         title
         email
+        bio
       }
     }
   }
