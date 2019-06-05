@@ -5,6 +5,8 @@ const initialState = {
   chosenArtwork: {
     title: "",
     featuredImage: "",
+    technique: "",
+    year: "",
   },
   chosenArtWorkImages: [],
   randomWidth: [],

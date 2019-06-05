@@ -19,6 +19,8 @@ const Footer = ({
     <FooterContainer>
       <FooterLeft
         title={detailPageVisable ? chosenArtwork.title : displayTitle}
+        technique={detailPageVisable ? chosenArtwork.technique : ""}
+        year={detailPageVisable ? chosenArtwork.year : ""}
       />
       <FooterRight
         display={detailPageVisable ? "none" : "block"}

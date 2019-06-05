@@ -16,6 +16,8 @@ class Image extends React.Component {
       chooseArtwork({
         featuredImage: this.props.featuredImage.childImageSharp.fluid.src,
         title: this.props.alt,
+        technique: this.props.technique,
+        year: this.props.year,
       })
     )
     this.props.dispatch(setArtWorkImages(this.props.images))

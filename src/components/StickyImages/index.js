@@ -49,6 +49,8 @@ class StickyImages extends React.Component {
             }}
             images={artwork.node.frontmatter.images}
             featuredImage={artwork.node.frontmatter.featuredImage}
+            technique={artwork.node.frontmatter.technique}
+            year={artwork.node.frontmatter.year}
           />
         ))}
       </ImageContainer>
