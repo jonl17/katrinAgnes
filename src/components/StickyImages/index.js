@@ -18,7 +18,6 @@ class StickyImages extends React.Component {
     )
     this.props.dispatch(fillYcordArray(generateRandomPixels(200, len, true)))
   }
-  // COME ON
   render() {
     const style = {
       position: `sticky !important`,
@@ -33,28 +32,28 @@ class StickyImages extends React.Component {
     }
     const { edges } = this.props.artworks
     const { randomWidth, randomHeight } = this.props
-    return (
-      <ImageContainer>
-        {edges.map((artwork, index) => (
-          <Image
-            alt={artwork.node.frontmatter.title}
-            key={artwork.node.id}
-            style={{
-              ...style,
-              ...imageStyle,
-              transform: `translate(${randomWidth[index]}px, ${
-                randomHeight[index]
-              }px)`,
-              height: `auto`,
-            }}
-            images={artwork.node.frontmatter.images}
-            featuredImage={artwork.node.frontmatter.featuredImage}
-            technique={artwork.node.frontmatter.technique}
-            year={artwork.node.frontmatter.year}
-          />
-        ))}
-      </ImageContainer>
-    )
+
+    const Images = () => {
+      return edges.map((artwork, index) => (
+        <Image
+          alt={artwork.node.frontmatter.title}
+          key={artwork.node.id}
+          style={{
+            ...style,
+            ...imageStyle,
+            transform: `translate(${randomWidth[index]}px, ${
+              randomHeight[index]
+            }px)`,
+            height: `auto`,
+          }}
+          images={artwork.node.frontmatter.images}
+          featuredImage={artwork.node.frontmatter.featuredImage}
+          technique={artwork.node.frontmatter.technique}
+          year={artwork.node.frontmatter.year}
+        />
+      ))
+    }
+    return <ImageContainer>{Images()}</ImageContainer>
   }
 }
 
