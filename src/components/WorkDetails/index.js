@@ -3,17 +3,27 @@ import "./index.css"
 import { connect } from "react-redux"
 import { showDetailPage } from "../../state/app"
 
+import Img from "gatsby-image"
+
 import WorkDetailsContainer from "./Views/WorkDetailsContainer"
 import ExitButton from "../ExitButton"
 
-const WorkDetails = ({ detailPageVisable, chosenArtwork, dispatch }) => {
+const WorkDetails = ({
+  detailPageVisable,
+  chosenArtwork,
+  dispatch,
+  chosenArtWorkImages,
+}) => {
   return (
     <WorkDetailsContainer display={detailPageVisable ? "grid" : "none"}>
-      <img /* TODO */
-        alt={""}
-        className="WorkDetails-image image-one"
-        src={chosenArtwork.image}
-      />
+      {chosenArtWorkImages.map((image, index) => (
+        <Img
+          key={image.id + "index"}
+          className={"WorkDetails-img-" + index}
+          fluid={image.childImageSharp.fluid}
+          imgStyle={{ objectFit: `contain` }}
+        />
+      ))}
       <ExitButton
         handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
       />
@@ -24,6 +34,7 @@ const WorkDetails = ({ detailPageVisable, chosenArtwork, dispatch }) => {
 const mapStateToProps = state => ({
   detailPageVisable: state.app.detailPageVisable,
   chosenArtwork: state.app.chosenArtwork,
+  chosenArtWorkImages: state.app.chosenArtWorkImages,
 })
 
 export default connect(mapStateToProps)(WorkDetails)

@@ -9,24 +9,36 @@ import WorkDetails from "../components/WorkDetails"
 
 export default ({ data }) => (
   <Wrap>
-    <StickyImages data={data} />
+    <StickyImages artworks={data.allMarkdownRemark} />
     <InfoPage data={data.site} />
     <WorkDetails />
-    <Footer info={"Information"} workTitle={"Work Title 2015"} />
+    <Footer info={"Information"} />
   </Wrap>
 )
 
 export const AllImages = graphql`
   query testerTemper {
-    allFile(filter: { sourceInstanceName: { eq: "temp" } }) {
+    allMarkdownRemark {
       edges {
         node {
           id
-          name
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-              src
+          frontmatter {
+            title
+            technique
+            year
+            images {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            featuredImage {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

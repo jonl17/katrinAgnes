@@ -9,8 +9,8 @@ import ImageContainer from "./Views/ImageContainer"
 import Image from "../Image"
 
 class StickyImages extends React.Component {
-  componentDidMount() {
-    const len = this.props.data.allFile.edges.length
+  componentWillMount() {
+    const len = this.props.artworks.edges.length
     const wideLimit = window.innerWidth / 2.5
     const innerWidth = window.innerWidth
     this.props.dispatch(
@@ -31,14 +31,14 @@ class StickyImages extends React.Component {
       maxHeight: 500,
       objectFit: `contain`,
     }
-    const { edges } = this.props.data.allFile
+    const { edges } = this.props.artworks
     const { randomWidth, randomHeight } = this.props
     return (
       <ImageContainer>
-        {edges.map((image, index) => (
+        {edges.map((artwork, index) => (
           <Image
-            alt={image.node.name}
-            key={image.node.id}
+            alt={artwork.node.frontmatter.title}
+            key={artwork.node.id}
             style={{
               ...style,
               ...imageStyle,
@@ -47,7 +47,8 @@ class StickyImages extends React.Component {
               }px)`,
               height: `auto`,
             }}
-            src={image.node.childImageSharp.fluid.src}
+            images={artwork.node.frontmatter.images}
+            featuredImage={artwork.node.frontmatter.featuredImage}
           />
         ))}
       </ImageContainer>

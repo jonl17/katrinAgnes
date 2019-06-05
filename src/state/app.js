@@ -3,10 +3,10 @@ const initialState = {
   infoPageVisable: false,
   detailPageVisable: false,
   chosenArtwork: {
-    image: "",
     title: "",
-    originalName: "",
+    featuredImage: "",
   },
+  chosenArtWorkImages: [],
   randomWidth: [],
   randomHeight: [],
 }
@@ -40,6 +40,12 @@ export const chooseArtwork = chosenArtwork => ({
   type: CHOOSE_ARTWORK,
   chosenArtwork,
 })
+// iv) set chosen artwork
+const SET_ARTWORK_IMAGES = "SET_ARTWORK_IMAGES"
+export const setArtWorkImages = images => ({
+  type: SET_ARTWORK_IMAGES,
+  images,
+})
 
 // v.1) fill random width pixel array
 const FILL_XCORD_ARRAY = "FILL_XCORD_ARRAY"
@@ -66,6 +72,8 @@ export default (state = initialState, action) => {
       return { ...state, detailPageVisable: action.detailPageVisable }
     case CHOOSE_ARTWORK:
       return { ...state, chosenArtwork: action.chosenArtwork }
+    case SET_ARTWORK_IMAGES:
+      return { ...state, chosenArtWorkImages: action.images }
     case FILL_XCORD_ARRAY:
       return { ...state, randomWidth: action.randomWidth }
     case FILL_YCORD_ARRAY:
