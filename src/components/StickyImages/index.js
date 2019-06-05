@@ -41,12 +41,12 @@ class StickyImages extends React.Component {
             alt={artwork.node.frontmatter.title}
             key={artwork.node.id}
             style={{
-              ...style,
-              ...imageStyle,
               transform: `translate(${randomWidth[index]}px, ${
                 randomHeight[index]
               }px)`,
               height: `auto`,
+              ...style,
+              ...imageStyle,
             }}
             images={artwork.node.frontmatter.images}
             featuredImage={artwork.node.frontmatter.featuredImage}
