@@ -18,7 +18,7 @@ class StickyImages extends React.Component {
     )
     this.props.dispatch(fillYcordArray(generateRandomPixels(200, len, true)))
   }
-
+  // COME ON
   render() {
     const style = {
       position: `sticky !important`,
