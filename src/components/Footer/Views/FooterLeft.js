@@ -5,7 +5,7 @@ const style = {
   display: `flex`,
   flexDirection: `column`,
   marginTop: `auto`,
-  marginBottom: `auto`,
+  paddingBottom: `35px`,
   paddingLeft: `35px`,
 }
 /* Footer Left */

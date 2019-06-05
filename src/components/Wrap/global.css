@@ -6,3 +6,8 @@ p {
   font-size: 20px;
   text-transform: lowercase;
 }
+
+html,
+body {
+  margin: 0;
+}
