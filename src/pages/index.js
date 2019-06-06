@@ -28,6 +28,7 @@ export const AllImages = graphql`
             year
             images {
               id
+              name
               childImageSharp {
                 fluid {
                   ...GatsbyImageSharpFluid

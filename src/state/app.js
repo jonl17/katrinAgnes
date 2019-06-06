@@ -11,6 +11,12 @@ const initialState = {
   chosenArtWorkImages: [],
   randomWidth: [],
   randomHeight: [],
+  hoveredImageIndex: 0,
+  indexPointerActive: false,
+  mouse: {
+    x: 0,
+    y: 0,
+  },
 }
 
 /* action creator */
@@ -62,6 +68,27 @@ export const fillYcordArray = randomHeight => ({
   randomHeight,
 })
 
+// vi) update image index on hover
+const SET_IMAGE_INDEX = "SET_IMAGE_INDEX"
+export const setImageIndex = index => ({
+  type: SET_IMAGE_INDEX,
+  index,
+})
+// vii) show index pointer
+const ACTIVATE_INDEX_POINTER = "ACTIVATE_INDEX_POINTER"
+export const activateIndexPointer = show => ({
+  type: ACTIVATE_INDEX_POINTER,
+  show /* true/false */,
+})
+
+// vii.1 set mouse cords
+const SET_MOUSE_CORDS = "SET_MOUSE_CORDS"
+export const setMouseCords = (x, y) => ({
+  type: SET_MOUSE_CORDS,
+  x,
+  y,
+})
+
 /* the reducer */
 
 export default (state = initialState, action) => {
@@ -80,6 +107,22 @@ export default (state = initialState, action) => {
       return { ...state, randomWidth: action.randomWidth }
     case FILL_YCORD_ARRAY:
       return { ...state, randomHeight: action.randomHeight }
+    case SET_IMAGE_INDEX:
+      return {
+        ...state,
+        hoveredImageIndex: action.index,
+        indexPointerActive: true,
+      }
+    case ACTIVATE_INDEX_POINTER:
+      return { ...state, indexPointerActive: action.show }
+    case SET_MOUSE_CORDS:
+      return {
+        ...state,
+        mouse: {
+          x: action.x,
+          y: action.y,
+        },
+      }
     default:
       return state
   }

@@ -3,9 +3,6 @@
   max-width: 100%;
   margin: auto;
 }
-.image-one {
-  grid-area: leftImg;
-}
 
 @media screen and (max-width: 600px) {
   .WorkDetails-image {
@@ -22,7 +19,9 @@
 
 #image-wrap-0 {
   grid-area: left;
+  position: relative;
 }
 #image-wrap-1 {
   grid-area: right;
+  position: relative;
 }
