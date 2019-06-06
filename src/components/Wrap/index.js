@@ -2,8 +2,14 @@ import React from "react"
 import "./fonts.css"
 import "./global.css"
 
-const Wrap = ({ children }) => {
-  return <div className="Wrap-container">{children}</div>
+class Wrap extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    const { children } = this.props
+    return <div className="Wrap-container">{children} </div>
+  }
 }
 
 export default Wrap

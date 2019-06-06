@@ -6,3 +6,23 @@
 .image-one {
   grid-area: leftImg;
 }
+
+@media screen and (max-width: 600px) {
+  .WorkDetails-image {
+    position: initial !important;
+  }
+  .WorkDetails-container {
+    padding: 0;
+  }
+}
+
+.WorkDetails-image:hover {
+  cursor: all-scroll;
+}
+
+#image-wrap-0 {
+  grid-area: left;
+}
+#image-wrap-1 {
+  grid-area: right;
+}

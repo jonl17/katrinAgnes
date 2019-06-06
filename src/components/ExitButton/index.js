@@ -1,5 +1,6 @@
 import React from "react"
 import icon from "../../../static/icons/x.png"
+import ExitIcon from "../ExitIcon"
 
 const style = {
   margin: 0,
@@ -11,11 +12,14 @@ const style = {
 }
 /* Exit btn */
 export default ({ handleClick }) => (
-  <img
-    style={{ ...style, position: `absolute` }}
-    alt={""}
-    src={icon}
-    className="Exit-infopage-btn"
-    onClick={() => handleClick()}
-  />
+  <>
+    <img
+      style={{ ...style, position: `absolute` }}
+      alt={""}
+      src={icon}
+      className="Exit-infopage-btn"
+      onClick={() => handleClick()}
+    />
+    <ExitIcon />
+  </>
 )

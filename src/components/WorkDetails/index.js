@@ -8,17 +8,28 @@ import Img from "gatsby-image"
 import WorkDetailsContainer from "./Views/WorkDetailsContainer"
 import ExitButton from "../ExitButton"
 
+const imageWrapStyle = {
+  width: `100%`,
+  maxHeight: `100%`,
+}
+
 const WorkDetails = ({ detailPageVisable, dispatch, chosenArtWorkImages }) => {
   return (
-    <WorkDetailsContainer display={detailPageVisable ? "flex" : "none"}>
+    <WorkDetailsContainer display={detailPageVisable ? "grid" : "none"}>
       {chosenArtWorkImages.map((image, index) => (
-        <Img
-          key={image.id + "index"}
-          className={"WorkDetails-img-" + index}
-          fluid={image.childImageSharp.fluid}
-          imgStyle={{ objectFit: `contain` }}
-          style={{ width: `100%` }}
-        />
+        <div
+          id={"image-wrap-" + index}
+          style={{ width: `100%`, height: `100%` }}
+          key={index}
+        >
+          <Img
+            className={"Workdetails-img WorkDetails-img-" + index}
+            fluid={image.childImageSharp.fluid}
+            imgStyle={{ objectFit: `contain`, width: `100%` }}
+            style={{ ...imageWrapStyle }}
+          />
+          <div className={"Workdetails-img Workdetails-img-" + index} />
+        </div>
       ))}
       <ExitButton
         handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
