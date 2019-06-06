@@ -33,7 +33,7 @@ class Image extends React.Component {
         handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
         style={this.props.style}
         /* only get first image for frontpage */
-        src={this.props.images[0].childImageSharp.fluid.src}
+        src={this.props.featuredImage.childImageSharp.fluid.src}
       />
     )
   }
