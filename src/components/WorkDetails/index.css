@@ -17,11 +17,7 @@
   cursor: all-scroll;
 }
 
-#image-wrap-0 {
-  grid-area: left;
+.image-wrap {
   position: relative;
-}
-#image-wrap-1 {
-  grid-area: right;
-  position: relative;
+  grid-row: 2/3;
 }

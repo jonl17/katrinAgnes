@@ -5,7 +5,10 @@ import {
   showDetailPage,
   setImageIndex,
   activateIndexPointer,
+  setImagesOnDisplay,
 } from "../../state/app"
+
+import { incrementImagesOnDisplayArray } from "../../methods"
 
 import Img from "gatsby-image"
 
@@ -23,28 +26,37 @@ const WorkDetails = ({
   detailPageVisable,
   dispatch,
   chosenArtWorkImages,
+  imagesOnDisplay,
   hoveredImageIndex,
   indexPointerActive,
   mouse,
 }) => {
   return (
     <WorkDetailsContainer display={detailPageVisable ? "grid" : "none"}>
-      {chosenArtWorkImages.map((image, index) => (
+      {imagesOnDisplay.map((image, index) => (
         <div
-          id={"image-wrap-" + index}
-          style={{ width: `100%`, height: `100%` }}
+          // id={"image-wrap-" + index}
+          className="image-wrap"
+          style={{ width: `100%`, height: `100%`, display: image.display }}
           key={index}
         >
           <Img
             className={"WorkDetails-img WorkDetails-img-" + index}
-            fluid={image.childImageSharp.fluid}
+            fluid={image.image.childImageSharp.fluid}
             imgStyle={{ objectFit: `contain`, width: `100%` }}
             style={{ ...imageWrapStyle }}
           />
           <HoverZone
+            displayNextImage={index =>
+              dispatch(
+                setImagesOnDisplay(
+                  incrementImagesOnDisplayArray(index, imagesOnDisplay)
+                )
+              )
+            }
             activateIndexPointer={show => dispatch(activateIndexPointer(show))}
             setImageIndex={imageIndex => dispatch(setImageIndex(imageIndex))}
-            index={index + 1}
+            index={index}
           />
         </div>
       ))}
@@ -67,6 +79,7 @@ const mapStateToProps = state => ({
   chosenArtWorkImages: state.app.chosenArtWorkImages,
   hoveredImageIndex: state.app.hoveredImageIndex,
   indexPointerActive: state.app.indexPointerActive,
+  imagesOnDisplay: state.app.imagesOnDisplay,
   mouse: state.app.mouse,
 })
 

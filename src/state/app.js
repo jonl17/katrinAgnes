@@ -9,6 +9,7 @@ const initialState = {
     year: "",
   },
   chosenArtWorkImages: [],
+  imagesOnDisplay: [],
   randomWidth: [],
   randomHeight: [],
   hoveredImageIndex: 0,
@@ -53,6 +54,13 @@ const SET_ARTWORK_IMAGES = "SET_ARTWORK_IMAGES"
 export const setArtWorkImages = images => ({
   type: SET_ARTWORK_IMAGES,
   images,
+})
+
+// iv.2) set images on display array
+const SET_IMAGES_ON_DISPLAY = "SET_IMAGES_ON_DISPLAY"
+export const setImagesOnDisplay = imagesOnDisplay => ({
+  type: SET_IMAGES_ON_DISPLAY,
+  imagesOnDisplay,
 })
 
 // v.1) fill random width pixel array
@@ -103,6 +111,8 @@ export default (state = initialState, action) => {
       return { ...state, chosenArtwork: action.chosenArtwork }
     case SET_ARTWORK_IMAGES:
       return { ...state, chosenArtWorkImages: action.images }
+    case SET_IMAGES_ON_DISPLAY:
+      return { ...state, imagesOnDisplay: action.imagesOnDisplay }
     case FILL_XCORD_ARRAY:
       return { ...state, randomWidth: action.randomWidth }
     case FILL_YCORD_ARRAY:

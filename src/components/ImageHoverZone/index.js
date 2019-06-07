@@ -7,11 +7,17 @@ const style = {
   top: 0,
 }
 
-export default ({ index, setImageIndex, activateIndexPointer }) => (
+export default ({
+  index,
+  setImageIndex,
+  activateIndexPointer,
+  displayNextImage,
+}) => (
   <>
     <div
       onMouseOut={() => activateIndexPointer(false)}
-      onMouseOver={() => setImageIndex(index)}
+      onMouseOver={() => setImageIndex(index + 1)}
+      onMouseDown={() => displayNextImage(index)}
       style={{ ...style }}
       className={"WorkDetails-hover-zone"}
     />

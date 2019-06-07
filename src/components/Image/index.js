@@ -5,7 +5,10 @@ import {
   showDetailPage,
   chooseArtwork,
   setArtWorkImages,
+  setImagesOnDisplay,
 } from "../../state/app"
+
+import { initializeImagesOnDisplayArray } from "../../methods"
 
 import IMG from "./Views/IMG"
 
@@ -23,6 +26,11 @@ class Image extends React.Component {
     this.props.dispatch(setArtWorkImages(this.props.images))
   }
   handleClick() {
+    this.props.dispatch(
+      setImagesOnDisplay(
+        initializeImagesOnDisplayArray(this.props.chosenArtWorkImages)
+      )
+    )
     this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
   }
   render() {
@@ -32,7 +40,6 @@ class Image extends React.Component {
         handleHover={() => this.handleHover()}
         handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
         style={this.props.style}
-        /* only get first image for frontpage */
         src={this.props.featuredImage.childImageSharp.fluid.src}
       />
     )
@@ -43,6 +50,8 @@ const mapStateToProps = state => ({
   displayTitle: state.app.displayTitle,
   detailPageVisable: state.app.detailPageVisable,
   chosenArtwork: state.app.chosenArtwork,
+  chosenArtWorkImages: state.app.chosenArtWorkImages,
+  imagesOnDisplay: state.app.imagesOnDisplay,
 })
 
 export default connect(mapStateToProps)(Image)

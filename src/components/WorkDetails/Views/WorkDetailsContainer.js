@@ -14,11 +14,11 @@ const style = {
   alignContent: `center`,
   justifyContent: `space-evenly`,
   gridGap: `50px`,
-  gridTemplateColumns: `1fr 1fr`,
+  gridTemplateColumns: `1fr`,
   gridTemplateRows: `10% 80% 10%`,
-  gridTemplateAreas: `"... ..."
-                      "left right" 
-                      "... ..."`,
+  gridTemplateAreas: `"..."
+                      "center" 
+                      "..."`,
 }
 
 export default ({ children, display }) => {

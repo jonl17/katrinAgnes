@@ -23,3 +23,34 @@ export const generateRandomPixels = (limit, length, setFixed) => {
 function randInt(limit) {
   return Math.floor(Math.random() * (limit - +0))
 }
+
+export const initializeImagesOnDisplayArray = imagesList => {
+  var imagesOnDisplay = []
+  for (var i = 0; i < imagesList.length; i++) {
+    /* sets the first two images on display */
+    if (i < 1) imagesOnDisplay.push({ image: imagesList[i], display: `block` })
+    else imagesOnDisplay.push({ image: imagesList[i], display: `none` })
+  }
+  return imagesOnDisplay
+}
+
+export const incrementImagesOnDisplayArray = (index, imagesList) => {
+  if (imagesList.length > 1) {
+    imagesList[index].display = `none`
+    if (index === imagesList.length - 1) {
+      index = 0
+      for (var i = index; i < imagesList.length; i++) {
+        if (imagesList[i].display === `none`) imagesList[i].display = `block`
+        console.log(index, imagesList)
+        return imagesList
+      }
+    }
+    for (var i = index + 1; i < imagesList.length; i++) {
+      if (imagesList[i].display === `none`) imagesList[i].display = `block`
+      console.log(index, imagesList)
+      return imagesList
+    }
+  }
+  console.log(index, imagesList)
+  return imagesList
+}
