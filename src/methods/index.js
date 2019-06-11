@@ -35,16 +35,17 @@ export const initializeImagesOnDisplayArray = imagesList => {
 }
 
 export const incrementImagesOnDisplayArray = (index, imagesList) => {
+  var i = 0
   if (imagesList.length > 1) {
     imagesList[index].display = `none`
     if (index === imagesList.length - 1) {
       index = 0
-      for (var i = index; i < imagesList.length; i++) {
+      for (i = index; i < imagesList.length; i++) {
         if (imagesList[i].display === `none`) imagesList[i].display = `block`
         return imagesList
       }
     }
-    for (var i = index + 1; i < imagesList.length; i++) {
+    for (i = index + 1; i < imagesList.length; i++) {
       if (imagesList[i].display === `none`) imagesList[i].display = `block`
       return imagesList
     }

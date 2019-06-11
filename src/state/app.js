@@ -103,6 +103,10 @@ const INCREMENT_IMAGE_INDEX = "INCREMENT_IMAGE_INDEX"
 export const incrementImageIndex = () => ({
   type: INCREMENT_IMAGE_INDEX,
 })
+const DECREMENT_IMAGE_INDEX = "DECREMENT_IMAGE_INDEX"
+export const decrementImageIndex = () => ({
+  type: DECREMENT_IMAGE_INDEX,
+})
 
 /* the reducer */
 
@@ -149,6 +153,16 @@ export default (state = initialState, action) => {
         return { ...state, chosenImageIndex: 0 }
       } else {
         return { ...state, chosenImageIndex: state.chosenImageIndex + 1 }
+      }
+    case DECREMENT_IMAGE_INDEX:
+      if (state.chosenImageIndex === 0) {
+        return {
+          ...state,
+          chosenImageIndex: state.chosenArtWorkImages.length - 1,
+        }
+      } else {
+        console.log(state.chosenArtWorkImages.length)
+        return { ...state, chosenImageIndex: state.chosenImageIndex - 1 }
       }
     default:
       return state

@@ -1,13 +1,18 @@
 import React from "react"
 import "./index.css"
 import { connect } from "react-redux"
-import { showDetailPage, incrementImageIndex } from "../../state/app"
+import {
+  showDetailPage,
+  incrementImageIndex,
+  decrementImageIndex,
+} from "../../state/app"
 
 import Img from "gatsby-image"
 
 import WorkDetailsContainer from "./Views/WorkDetailsContainer"
 import ExitButton from "../ExitButton"
 import NextButton from "../NextButton"
+import PrevButton from "../PrevButton"
 
 const imageWrapStyle = {
   maxHeight: `100%`,
@@ -33,6 +38,7 @@ const WorkDetails = ({
         <ExitButton
           handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
         />
+        <PrevButton onClick={() => dispatch(decrementImageIndex())} />
         <NextButton onClick={() => dispatch(incrementImageIndex())} />
       </WorkDetailsContainer>
     )
