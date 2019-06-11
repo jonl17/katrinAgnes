@@ -14,6 +14,8 @@ const Footer = ({
   infoPageVisable,
   info,
   dispatch,
+  chosenArtWorkImages,
+  chosenImageIndex,
 }) => {
   return (
     <FooterContainer>
@@ -26,6 +28,9 @@ const Footer = ({
         display={detailPageVisable ? "none" : "block"}
         onClick={() => dispatch(showInfoPage(!infoPageVisable))}
         info={info}
+        detailPageVisable={detailPageVisable}
+        chosenImageIndex={chosenImageIndex}
+        len={chosenArtWorkImages.length}
       />
     </FooterContainer>
   )
@@ -36,6 +41,8 @@ const mapStateToProps = state => ({
   infoPageVisable: state.app.infoPageVisable,
   chosenArtwork: state.app.chosenArtwork,
   detailPageVisable: state.app.detailPageVisable,
+  chosenArtWorkImages: state.app.chosenArtWorkImages,
+  chosenImageIndex: state.app.chosenImageIndex,
 })
 
 export default connect(mapStateToProps)(Footer)

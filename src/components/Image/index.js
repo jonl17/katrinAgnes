@@ -36,6 +36,7 @@ class Image extends React.Component {
   render() {
     return (
       <IMG
+        className="frontpage-IMG"
         handleClick={() => this.handleClick()}
         handleHover={() => this.handleHover()}
         handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}

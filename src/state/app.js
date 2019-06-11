@@ -18,6 +18,7 @@ const initialState = {
     x: 0,
     y: 0,
   },
+  chosenImageIndex: 0,
 }
 
 /* action creator */
@@ -97,6 +98,12 @@ export const setMouseCords = (x, y) => ({
   y,
 })
 
+// chosen image index in detail page
+const INCREMENT_IMAGE_INDEX = "INCREMENT_IMAGE_INDEX"
+export const incrementImageIndex = () => ({
+  type: INCREMENT_IMAGE_INDEX,
+})
+
 /* the reducer */
 
 export default (state = initialState, action) => {
@@ -110,7 +117,11 @@ export default (state = initialState, action) => {
     case CHOOSE_ARTWORK:
       return { ...state, chosenArtwork: action.chosenArtwork }
     case SET_ARTWORK_IMAGES:
-      return { ...state, chosenArtWorkImages: action.images }
+      return {
+        ...state,
+        chosenArtWorkImages: action.images,
+        chosenImageIndex: 0,
+      }
     case SET_IMAGES_ON_DISPLAY:
       return { ...state, imagesOnDisplay: action.imagesOnDisplay }
     case FILL_XCORD_ARRAY:
@@ -132,6 +143,12 @@ export default (state = initialState, action) => {
           x: action.x,
           y: action.y,
         },
+      }
+    case INCREMENT_IMAGE_INDEX:
+      if (state.chosenImageIndex > state.chosenArtWorkImages.length - 2) {
+        return { ...state, chosenImageIndex: 0 }
+      } else {
+        return { ...state, chosenImageIndex: state.chosenImageIndex + 1 }
       }
     default:
       return state

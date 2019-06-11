@@ -1,22 +1,13 @@
 import React from "react"
 import "./index.css"
 import { connect } from "react-redux"
-import {
-  showDetailPage,
-  setImageIndex,
-  activateIndexPointer,
-  setImagesOnDisplay,
-} from "../../state/app"
-
-import { incrementImagesOnDisplayArray } from "../../methods"
+import { showDetailPage, incrementImageIndex } from "../../state/app"
 
 import Img from "gatsby-image"
 
 import WorkDetailsContainer from "./Views/WorkDetailsContainer"
 import ExitButton from "../ExitButton"
-import HoverZone from "../ImageHoverZone"
-import IndexCursor from "../IndexCursor"
-import ImageWrap from "../ImageWrap"
+import NextButton from "../NextButton"
 
 const imageWrapStyle = {
   maxHeight: `100%`,
@@ -27,31 +18,22 @@ const imageWrapStyle = {
 const WorkDetails = ({
   detailPageVisable,
   dispatch,
-  chosenArtWorkImages,
   imagesOnDisplay,
-  hoveredImageIndex,
-  indexPointerActive,
-  mouse,
+  chosenImageIndex,
 }) => {
-  console.log(imagesOnDisplay)
   if (detailPageVisable) {
     return (
       <WorkDetailsContainer display={detailPageVisable ? "grid" : "none"}>
         <Img
           className="image-wrap"
           style={imageWrapStyle}
-          fluid={imagesOnDisplay[0].image.childImageSharp.fluid}
+          fluid={imagesOnDisplay[chosenImageIndex].image.childImageSharp.fluid}
           imgStyle={{ objectFit: `contain` }}
         />
         <ExitButton
           handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
         />
-        <IndexCursor
-          hoveredImageIndex={hoveredImageIndex}
-          length={chosenArtWorkImages.length}
-          display={indexPointerActive ? "block" : "none"}
-          mouse={mouse}
-        />
+        <NextButton onClick={() => dispatch(incrementImageIndex())} />
       </WorkDetailsContainer>
     )
   } else {
@@ -66,7 +48,7 @@ const mapStateToProps = state => ({
   hoveredImageIndex: state.app.hoveredImageIndex,
   indexPointerActive: state.app.indexPointerActive,
   imagesOnDisplay: state.app.imagesOnDisplay,
-  mouse: state.app.mouse,
+  chosenImageIndex: state.app.chosenImageIndex,
 })
 
 export default connect(mapStateToProps)(WorkDetails)

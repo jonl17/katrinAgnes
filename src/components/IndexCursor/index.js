@@ -1,12 +1,10 @@
 import React from "react"
 
-export default ({ hoveredImageIndex, length, display, mouse }) => (
+export default ({ hoveredImageIndex, length, display }) => (
   <p
     style={{
       position: `absolute`,
       display: display,
-      left: `${mouse.x}px`,
-      top: `${mouse.y}px`,
       color: `white`,
     }}
     className="number-of"
