@@ -15,9 +15,9 @@ export default ({
 }) => (
   <>
     <div
-      onMouseOut={() => activateIndexPointer(false)}
-      onMouseOver={() => setImageIndex(index + 1)}
-      onMouseDown={() => displayNextImage(index)}
+      // onMouseOut={() => activateIndexPointer(false)}
+      // onMouseOver={() => setImageIndex(index + 1)}
+      onClick={() => displayNextImage(index)}
       style={{ ...style }}
       className={"WorkDetails-hover-zone"}
     />

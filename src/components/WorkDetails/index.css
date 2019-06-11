@@ -18,6 +18,6 @@
 }
 
 .image-wrap {
-  position: relative;
+  position: absolute;
   grid-row: 2/3;
 }

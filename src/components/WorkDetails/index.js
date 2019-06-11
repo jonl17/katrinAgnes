@@ -16,10 +16,12 @@ import WorkDetailsContainer from "./Views/WorkDetailsContainer"
 import ExitButton from "../ExitButton"
 import HoverZone from "../ImageHoverZone"
 import IndexCursor from "../IndexCursor"
+import ImageWrap from "../ImageWrap"
 
 const imageWrapStyle = {
-  width: `100%`,
   maxHeight: `100%`,
+  height: `100%`,
+  width: `100%`,
 }
 
 const WorkDetails = ({
@@ -31,46 +33,30 @@ const WorkDetails = ({
   indexPointerActive,
   mouse,
 }) => {
-  return (
-    <WorkDetailsContainer display={detailPageVisable ? "grid" : "none"}>
-      {imagesOnDisplay.map((image, index) => (
-        <div
-          // id={"image-wrap-" + index}
+  console.log(imagesOnDisplay)
+  if (detailPageVisable) {
+    return (
+      <WorkDetailsContainer display={detailPageVisable ? "grid" : "none"}>
+        <Img
           className="image-wrap"
-          style={{ width: `100%`, height: `100%`, display: image.display }}
-          key={index}
-        >
-          <Img
-            className={"WorkDetails-img WorkDetails-img-" + index}
-            fluid={image.image.childImageSharp.fluid}
-            imgStyle={{ objectFit: `contain`, width: `100%` }}
-            style={{ ...imageWrapStyle }}
-          />
-          <HoverZone
-            displayNextImage={index =>
-              dispatch(
-                setImagesOnDisplay(
-                  incrementImagesOnDisplayArray(index, imagesOnDisplay)
-                )
-              )
-            }
-            activateIndexPointer={show => dispatch(activateIndexPointer(show))}
-            setImageIndex={imageIndex => dispatch(setImageIndex(imageIndex))}
-            index={index}
-          />
-        </div>
-      ))}
-      <ExitButton
-        handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
-      />
-      <IndexCursor
-        hoveredImageIndex={hoveredImageIndex}
-        length={chosenArtWorkImages.length}
-        display={indexPointerActive ? "block" : "none"}
-        mouse={mouse}
-      />
-    </WorkDetailsContainer>
-  )
+          style={imageWrapStyle}
+          fluid={imagesOnDisplay[0].image.childImageSharp.fluid}
+          imgStyle={{ objectFit: `contain` }}
+        />
+        <ExitButton
+          handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
+        />
+        <IndexCursor
+          hoveredImageIndex={hoveredImageIndex}
+          length={chosenArtWorkImages.length}
+          display={indexPointerActive ? "block" : "none"}
+          mouse={mouse}
+        />
+      </WorkDetailsContainer>
+    )
+  } else {
+    return <div />
+  }
 }
 
 const mapStateToProps = state => ({
