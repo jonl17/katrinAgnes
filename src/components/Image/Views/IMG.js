@@ -5,17 +5,23 @@ const Image = styled.div`
   &&:hover {
     cursor: pointer;
   }
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0;
+  width: 25vw;
+  height: auto;
+  background-size: contain;
+  max-height: 500px;
+  object-fit: contain;
 `
 
 /* IMG */
 export default ({ handleClick, handleHover, handleOut, style, src }) => (
   <Image
-    className="Sticky-image"
     onClick={() => handleClick()}
     onMouseOver={() => handleHover()}
     onMouseOut={() => handleOut()}
     style={style}
-    // src={src}
   >
     <Img fluid={src} critical={true} />
   </Image>

@@ -20,17 +20,6 @@ class StickyImages extends React.Component {
   }
   // COME ON
   render() {
-    const style = {
-      position: `sticky !important`,
-      top: 0,
-      maxHeight: 500,
-      backgroundSize: `contain`,
-    }
-    const imageStyle = {
-      width: `25vw`,
-      maxHeight: 500,
-      objectFit: `contain`,
-    }
     const { edges } = this.props.artworks
     const { randomWidth, randomHeight } = this.props
 
@@ -44,9 +33,6 @@ class StickyImages extends React.Component {
               transform: `translate(${randomWidth[index]}px, ${
                 randomHeight[index]
               }px)`,
-              height: `auto`,
-              ...style,
-              ...imageStyle,
             }}
             images={artwork.node.frontmatter.images}
             featuredImage={artwork.node.frontmatter.featuredImage}
