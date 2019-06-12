@@ -32,7 +32,7 @@ const WorkDetails = ({
         <Img
           className="image-wrap"
           style={imageWrapStyle}
-          fluid={imagesOnDisplay[chosenImageIndex].image.childImageSharp.fluid}
+          fixed={imagesOnDisplay[chosenImageIndex].image.childImageSharp.fixed}
           imgStyle={{ objectFit: `contain` }}
           loading={`lazy`}
           critical={true}

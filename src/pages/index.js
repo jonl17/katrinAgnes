@@ -30,8 +30,8 @@ export const AllImages = graphql`
               id
               name
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
+                fixed {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
