@@ -1,5 +1,4 @@
 import React from "react"
-import "./index.css"
 import { connect } from "react-redux"
 import {
   showDetailPage,
@@ -11,13 +10,14 @@ import Img from "gatsby-image"
 
 import WorkDetailsContainer from "./Views/WorkDetailsContainer"
 import ExitButton from "../ExitButton"
-import NextButton from "../NextButton"
-import PrevButton from "../PrevButton"
+import ShiftButton from "../ShiftButton"
 
 const imageWrapStyle = {
   maxHeight: `100%`,
   height: `100%`,
   width: `100%`,
+  position: `absolute`,
+  gridRow: `2/3`,
 }
 
 const WorkDetails = ({
@@ -34,12 +34,20 @@ const WorkDetails = ({
           style={imageWrapStyle}
           fluid={imagesOnDisplay[chosenImageIndex].image.childImageSharp.fluid}
           imgStyle={{ objectFit: `contain` }}
+          loading={`lazy`}
+          critical={true}
         />
         <ExitButton
           handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
         />
-        <PrevButton onClick={() => dispatch(decrementImageIndex())} />
-        <NextButton onClick={() => dispatch(incrementImageIndex())} />
+        <ShiftButton
+          direction={`next`}
+          onClick={() => dispatch(incrementImageIndex())}
+        />
+        <ShiftButton
+          direction={`previous`}
+          onClick={() => dispatch(decrementImageIndex())}
+        />
       </WorkDetailsContainer>
     )
   } else {

@@ -1,12 +1,14 @@
 import React from "react"
+import styled from "styled-components"
 
-const style = {
-  boxSizing: `border-box`,
-  width: `70%`,
-}
+const Center = styled.div`
+  box-sizing: border-box;
+  width: 70%;
+`
+
 /* Info page Center */
 export default ({ biography }) => (
-  <div style={style} className="Infopage-center">
-    <p className="Infopage-bio">{biography}</p>
-  </div>
+  <Center>
+    <p>{biography}</p>
+  </Center>
 )
