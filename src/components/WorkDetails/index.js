@@ -32,10 +32,10 @@ const WorkDetails = ({
         <Img
           className="image-wrap"
           style={imageWrapStyle}
-          fixed={imagesOnDisplay[chosenImageIndex].image.childImageSharp.fixed}
+          fluid={imagesOnDisplay[chosenImageIndex].image.childImageSharp.fluid}
           imgStyle={{ objectFit: `contain` }}
           loading={`lazy`}
-          critical={true}
+          // critical={true}
         />
         <ExitButton
           handleClick={() => dispatch(showDetailPage(!detailPageVisable))}

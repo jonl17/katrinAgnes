@@ -30,15 +30,15 @@ export const AllImages = graphql`
               id
               name
               childImageSharp {
-                fixed {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 700) {
+                  ...GatsbyImageSharpFluid_noBase64
                 }
               }
             }
             featuredImage {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
+                fluid(maxWidth: 700) {
+                  ...GatsbyImageSharpFluid_noBase64
                 }
               }
             }

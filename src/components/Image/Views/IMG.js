@@ -1,15 +1,22 @@
 import React from "react"
-import "../index.css"
+import styled from "styled-components"
+import Img from "gatsby-image"
+const Image = styled.div`
+  &&:hover {
+    cursor: pointer;
+  }
+`
 
 /* IMG */
 export default ({ handleClick, handleHover, handleOut, style, src }) => (
-  <img
+  <Image
     className="Sticky-image"
     onClick={() => handleClick()}
     onMouseOver={() => handleHover()}
     onMouseOut={() => handleOut()}
-    alt={""}
     style={style}
-    src={src}
-  />
+    // src={src}
+  >
+    <Img fluid={src} critical={true} />
+  </Image>
 )

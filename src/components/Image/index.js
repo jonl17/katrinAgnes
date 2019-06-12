@@ -41,7 +41,7 @@ class Image extends React.Component {
         handleHover={() => this.handleHover()}
         handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
         style={this.props.style}
-        src={this.props.featuredImage.childImageSharp.fluid.src}
+        src={this.props.featuredImage.childImageSharp.fluid}
       />
     )
   }
