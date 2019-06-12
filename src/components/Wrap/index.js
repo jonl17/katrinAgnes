@@ -1,5 +1,5 @@
 import React from "react"
-import "./fonts.css"
+import "./global.css"
 
 import Container from "./Styled/Container"
 

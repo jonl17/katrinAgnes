@@ -1,5 +1,4 @@
 import React from "react"
-import "./index.css"
 
 import { connect } from "react-redux"
 import { generateRandomPixels } from "../../methods"
