@@ -1,17 +1,15 @@
 import React from "react"
+import styled from "styled-components"
 
-const style = {
-  position: `fixed`,
-  width: `100%`,
-  left: `0`,
-  bottom: `0`,
-  display: `grid`,
-  gridTemplateColumns: `50% 50%`,
-  height: 100,
-}
+const FooterContainer = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  left: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 50% 50%;
+`
+
 /* Footer Container */
-export default ({ children }) => (
-  <div style={style} className="Footer-container">
-    {children}
-  </div>
-)
+export default ({ children }) => <FooterContainer>{children}</FooterContainer>

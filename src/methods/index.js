@@ -14,7 +14,7 @@ export const generateRandomPixels = (limit, length, setFixed) => {
   }
   if (setFixed) {
     pixels[pixels.length - 1] = -100
-    if (pixels.length > 3) pixels[pixels.length - 3] = 400
+    // if (pixels.length > 3) pixels[pixels.length - 3] = 400
   }
   return pixels
 }

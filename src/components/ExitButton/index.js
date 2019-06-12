@@ -1,25 +1,21 @@
 import React from "react"
 import icon from "../../../static/icons/x.png"
-import ExitIcon from "../ExitIcon"
+import styled from "styled-components"
 
-const style = {
-  margin: 0,
-  top: 0,
-  right: 0,
-  padding: 25,
-  height: 25,
-  width: 25,
-}
+const ExitButton = styled.img`
+  margin: 0;
+  top: 0;
+  right: 0;
+  padding: 25px;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  &:hover {
+    cursor: pointer !important;
+  }
+`
+
 /* Exit btn */
 export default ({ handleClick }) => (
-  <>
-    <img
-      style={{ ...style, position: `absolute` }}
-      alt={""}
-      src={icon}
-      className="Exit-infopage-btn"
-      onClick={() => handleClick()}
-    />
-    <ExitIcon />
-  </>
+  <ExitButton alt={""} src={icon} onClick={() => handleClick()} />
 )

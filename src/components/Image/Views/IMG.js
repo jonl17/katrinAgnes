@@ -1,5 +1,6 @@
 import React from "react"
 import "../index.css"
+
 /* IMG */
 export default ({ handleClick, handleHover, handleOut, style, src }) => (
   <img

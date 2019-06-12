@@ -1,5 +1,4 @@
 import React from "react"
-import "./index.css"
 import { connect } from "react-redux"
 import { showInfoPage } from "../../state/app"
 

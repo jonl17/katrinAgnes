@@ -1,18 +1,20 @@
 import React from "react"
-import "../index.css"
+import styled from "styled-components"
 
-const style = {
-  display: `flex`,
-  flexDirection: `column`,
-  marginTop: `auto`,
-  paddingBottom: `35px`,
-  paddingLeft: `35px`,
-}
+import Text from "./Styled/FooterText"
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  padding-bottom: 35px;
+  padding-left: 35px;
+`
 /* Footer Left */
 export default ({ title, technique, year }) => (
-  <div style={style}>
-    <p className="Footer-text Footer-text-one">{title}</p>
-    <p className="Footer-text Footer-text-two">{technique}</p>
-    <p className="Footer-text Footer-text-three">{year}</p>
-  </div>
+  <Container>
+    <Text>{title}</Text>
+    <Text>{technique}</Text>
+    <Text>{year}</Text>
+  </Container>
 )
