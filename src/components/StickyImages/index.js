@@ -9,6 +9,7 @@ import Image from "../Image"
 
 class StickyImages extends React.Component {
   componentDidMount() {
+    console.log(this.props)
     const len = this.props.artworks.edges.length
     const wideLimit = window.innerWidth / 2.5
     const innerWidth = window.innerWidth
