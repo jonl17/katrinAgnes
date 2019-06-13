@@ -10,7 +10,10 @@ const Text = styled.p`
 `
 
 const IndexCursor = ({ hoveredImageIndex, length, display, mouse }) => (
-  <Text style={{ left: `${mouse.x}px`, top: `${mouse.y}px` }} display={display}>
+  <Text
+    style={{ left: `${mouse.x - 10}px`, top: `${mouse.y - 10}px` }}
+    display={display}
+  >
     {hoveredImageIndex}/{length}
   </Text>
 )

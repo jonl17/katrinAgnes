@@ -127,6 +127,7 @@ export default (state = initialState, action) => {
         chosenImageIndex: 0,
       }
     case SET_IMAGES_ON_DISPLAY:
+      console.log(state.imagesOnDisplay)
       return { ...state, imagesOnDisplay: action.imagesOnDisplay }
     case FILL_XCORD_ARRAY:
       return { ...state, randomWidth: action.randomWidth }

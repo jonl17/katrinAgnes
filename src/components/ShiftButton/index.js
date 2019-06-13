@@ -6,9 +6,9 @@ const ShiftButton = styled.div`
   padding: 5px;
   color: white;
   height: 100%;
-  width: 100%;
+  width: 45%;
+  left: 27%;
   top: 0;
-  left: 0;
   &&:hover {
     cursor: none;
   }
