@@ -1,33 +1,25 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 
 const ShiftButton = styled.div`
   position: fixed;
-  top: 50%;
-  border: 1px solid black;
   padding: 5px;
   color: white;
-  background-color: black;
-  &:hover {
-    cursor: pointer;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  &&:hover {
+    cursor: none;
   }
-  /* left or right */
-  ${props =>
-    props.direction === `next` &&
-    css`
-      right: 100px;
-    `}
-  ${props =>
-    props.direction === `previous` &&
-    css`
-      left: 100px;
-    `}
 `
 
-export default ({ onClick, direction }) => {
+export default ({ onClick, mouseRadar, mouseHide }) => {
   return (
-    <ShiftButton direction={direction} onClick={() => onClick()}>
-      {direction}
-    </ShiftButton>
+    <ShiftButton
+      onMouseLeave={() => mouseHide()}
+      onMouseMove={event => mouseRadar(event)}
+      onClick={() => onClick()}
+    />
   )
 }

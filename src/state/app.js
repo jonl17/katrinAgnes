@@ -147,6 +147,7 @@ export default (state = initialState, action) => {
           x: action.x,
           y: action.y,
         },
+        indexPointerActive: true,
       }
     case INCREMENT_IMAGE_INDEX:
       if (state.chosenImageIndex > state.chosenArtWorkImages.length - 2) {
@@ -161,7 +162,6 @@ export default (state = initialState, action) => {
           chosenImageIndex: state.chosenArtWorkImages.length - 1,
         }
       } else {
-        console.log(state.chosenArtWorkImages.length)
         return { ...state, chosenImageIndex: state.chosenImageIndex - 1 }
       }
     default:

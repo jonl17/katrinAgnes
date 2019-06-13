@@ -23,6 +23,6 @@ export default ({ handleClick, handleHover, handleOut, style, src }) => (
     onMouseOut={() => handleOut()}
     style={style}
   >
-    <Img fluid={src} critical={true} />
+    <Img fluid={src} />
   </Image>
 )

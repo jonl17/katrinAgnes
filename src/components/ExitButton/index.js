@@ -13,6 +13,7 @@ const ExitButton = styled.img`
   &:hover {
     cursor: pointer !important;
   }
+  z-index: 4;
 `
 
 /* Exit btn */

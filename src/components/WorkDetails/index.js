@@ -3,7 +3,8 @@ import { connect } from "react-redux"
 import {
   showDetailPage,
   incrementImageIndex,
-  decrementImageIndex,
+  setMouseCords,
+  activateIndexPointer,
 } from "../../state/app"
 
 import Img from "gatsby-image"
@@ -11,6 +12,7 @@ import Img from "gatsby-image"
 import WorkDetailsContainer from "./Views/WorkDetailsContainer"
 import ExitButton from "../ExitButton"
 import ShiftButton from "../ShiftButton"
+import IndexCursor from "../IndexCursor"
 
 const imageWrapStyle = {
   maxHeight: `100%`,
@@ -25,28 +27,32 @@ const WorkDetails = ({
   dispatch,
   imagesOnDisplay,
   chosenImageIndex,
+  indexPointerActive,
 }) => {
   if (detailPageVisable) {
     return (
       <WorkDetailsContainer display={detailPageVisable ? "grid" : "none"}>
         <Img
+          onClick={() => console.log("HOE")}
           className="image-wrap"
           style={imageWrapStyle}
           fluid={imagesOnDisplay[chosenImageIndex].image.childImageSharp.fluid}
           imgStyle={{ objectFit: `contain` }}
           loading={`lazy`}
-          // critical={true}
         />
         <ExitButton
           handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
         />
         <ShiftButton
+          mouseHide={() => dispatch(activateIndexPointer(false))}
+          mouseRadar={e => dispatch(setMouseCords(e.clientX, e.clientY))}
           direction={`next`}
           onClick={() => dispatch(incrementImageIndex())}
         />
-        <ShiftButton
-          direction={`previous`}
-          onClick={() => dispatch(decrementImageIndex())}
+        <IndexCursor
+          hoveredImageIndex={chosenImageIndex + 1}
+          length={imagesOnDisplay.length}
+          display={indexPointerActive ? `block` : `none`}
         />
       </WorkDetailsContainer>
     )
@@ -59,7 +65,6 @@ const mapStateToProps = state => ({
   detailPageVisable: state.app.detailPageVisable,
   chosenArtwork: state.app.chosenArtwork,
   chosenArtWorkImages: state.app.chosenArtWorkImages,
-  hoveredImageIndex: state.app.hoveredImageIndex,
   indexPointerActive: state.app.indexPointerActive,
   imagesOnDisplay: state.app.imagesOnDisplay,
   chosenImageIndex: state.app.chosenImageIndex,
