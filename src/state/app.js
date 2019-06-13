@@ -19,6 +19,10 @@ const initialState = {
     y: 0,
   },
   chosenImageIndex: 0,
+  shiftZoneSize: {
+    height: 400,
+    width: 700,
+  },
 }
 
 /* action creator */
@@ -108,6 +112,13 @@ export const decrementImageIndex = () => ({
   type: DECREMENT_IMAGE_INDEX,
 })
 
+const SET_SHIFTZONE_SIZE = "SET_SHIFTZONE_SIZE"
+export const setShiftzoneSize = (height, width) => ({
+  type: SET_SHIFTZONE_SIZE,
+  height,
+  width,
+})
+
 /* the reducer */
 
 export default (state = initialState, action) => {
@@ -164,6 +175,14 @@ export default (state = initialState, action) => {
         }
       } else {
         return { ...state, chosenImageIndex: state.chosenImageIndex - 1 }
+      }
+    case SET_SHIFTZONE_SIZE:
+      return {
+        ...state,
+        shiftZoneSize: {
+          height: action.height,
+          width: action.width,
+        },
       }
     default:
       return state
