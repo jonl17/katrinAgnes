@@ -3,24 +3,14 @@ import React from "react"
 import Text from "./Styled/FooterText"
 
 /* Footer Right */
-export default ({
-  onClick,
-  info,
-  detailPageVisable,
-  chosenImageIndex,
-  len,
-}) => {
-  if (detailPageVisable) {
+export default ({ onClick, info, detailPageVisable }) => {
+  if (!detailPageVisable) {
     return (
-      <Text right>
-        {chosenImageIndex + 1}/{len}
-      </Text>
-    )
-  } else {
-    return (
-      <Text information right onClick={() => onClick()}>
+      <Text onClick={() => onClick()} information right>
         {info}
       </Text>
     )
+  } else {
+    return <div />
   }
 }

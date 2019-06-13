@@ -9,7 +9,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   box-sizing: border-box;
-  padding: 35px 200px 100px 200px;
+  padding: 100px 200px 100px 200px;
   background-color: white;
   display: ${props => props.display};
   align-content: center;
@@ -21,13 +21,6 @@ const Container = styled.div`
     "..."
     "center"
     "...";
-
-  @media ${device.tablet} {
-    padding: 10px;
-  }
-  @media ${device.mobile} {
-    padding: 0;
-  }
 `
 
 export default ({ children, display }) => {

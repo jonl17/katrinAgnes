@@ -8,7 +8,7 @@ const FooterContainer = styled.div`
   left: 0;
   bottom: 0;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: auto 1fr;
 `
 
 /* Footer Container */

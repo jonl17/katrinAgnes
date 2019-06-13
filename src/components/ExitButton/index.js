@@ -1,22 +1,33 @@
 import React from "react"
-import icon from "../../../static/icons/x.png"
 import styled from "styled-components"
 
-const ExitButton = styled.img`
-  margin: 0;
-  top: 0;
-  right: 0;
-  padding: 25px;
-  height: 25px;
-  width: 25px;
+const NewExitButton = styled.div`
+  height: 35px;
+  width: 35px;
   position: absolute;
+  right: 35px;
+  top: 35px;
   &:hover {
-    cursor: pointer !important;
+    cursor: pointer;
   }
-  z-index: 4;
+  display: ${props => props.display};
+  flex-direction: column;
+`
+const Line = styled.span`
+  background: black;
+  width: 100%;
+  height: 2.5px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  margin-top: -5px;
+  transform: ${props => (props.differ ? "rotate(45deg)" : "rotate(-45deg)")};
 `
 
 /* Exit btn */
-export default ({ handleClick }) => (
-  <ExitButton alt={""} src={icon} onClick={() => handleClick()} />
+export default ({ handleClick, display }) => (
+  <NewExitButton display={display} onClick={() => handleClick()}>
+    <Line differ />
+    <Line />
+  </NewExitButton>
 )

@@ -1,7 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
 import {
-  showDetailPage,
   incrementImageIndex,
   setMouseCords,
   activateIndexPointer,
@@ -11,7 +10,6 @@ import {
 import Img from "gatsby-image"
 
 import WorkDetailsContainer from "./Views/WorkDetailsContainer"
-import ExitButton from "../ExitButton"
 import ShiftButton from "../ShiftButton"
 import IndexCursor from "../IndexCursor"
 
@@ -74,9 +72,9 @@ class WorkDetails extends React.Component {
             loading={`lazy`}
             ref={"inner"}
           />
-          <ExitButton
+          {/* <ExitButton
             handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
-          />
+          /> */}
           <ShiftButton
             height={shiftZoneSize.height + "px"}
             margTop={(shiftZoneSize.height / 2) * -1 + "px"}

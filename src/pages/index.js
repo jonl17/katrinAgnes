@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Wrap from "../components/Wrap"
+import Header from "../components/Header"
 import Footer from "../components/Footer"
 import StickyImages from "../components/StickyImages"
 import InfoPage from "../components/InfoPage"
@@ -9,6 +10,7 @@ import WorkDetails from "../components/WorkDetails"
 
 export default ({ data }) => (
   <Wrap>
+    <Header info={"Information"} />
     <StickyImages artworks={data.allMarkdownRemark} />
     <InfoPage data={data.site} />
     <WorkDetails />

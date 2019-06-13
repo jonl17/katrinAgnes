@@ -19,6 +19,7 @@ const Footer = ({
   return (
     <FooterContainer>
       <FooterLeft
+        footer
         title={detailPageVisable ? chosenArtwork.title : displayTitle}
         technique={detailPageVisable ? chosenArtwork.technique : ""}
         year={detailPageVisable ? chosenArtwork.year : ""}
