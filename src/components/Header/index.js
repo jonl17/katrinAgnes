@@ -5,7 +5,7 @@ import HeaderContainer from "./Views/HeaderContainer"
 import ExitButton from "../ExitButton"
 import FooterLeft from "../Footer/Views/FooterLeft"
 
-import { showDetailPage } from "../../state/app"
+import { showDetailPage } from "../../state/actions"
 
 const Header = ({
   dispatch,
@@ -31,9 +31,11 @@ const Header = ({
 }
 
 const mapStateToProps = state => ({
-  displayTitle: state.app.displayTitle,
-  chosenArtwork: state.app.chosenArtwork,
-  detailPageVisable: state.app.detailPageVisable,
+  displayTitle: state.reducer.displayTitle,
+  chosenArtwork: state.reducer.chosenArtwork,
+  detailPageVisable: state.reducer.detailPageVisable,
+  windowWidth: state.responsiveReducer.windowWidth,
+  device: state.responsiveReducer.device,
 })
 
 export default connect(mapStateToProps)(Header)

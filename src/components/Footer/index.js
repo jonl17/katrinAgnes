@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { showInfoPage } from "../../state/app"
+import { showInfoPage } from "../../state/actions"
 
 import FooterContainer from "./Views/FooterContainer"
 import FooterLeft from "./Views/FooterLeft"
@@ -15,9 +15,11 @@ const Footer = ({
   dispatch,
   chosenArtWorkImages,
   chosenImageIndex,
+  device,
 }) => {
+  console.log(device)
   return (
-    <FooterContainer>
+    <FooterContainer device={device}>
       <FooterLeft
         footer
         title={detailPageVisable ? chosenArtwork.title : displayTitle}
@@ -37,12 +39,13 @@ const Footer = ({
 }
 
 const mapStateToProps = state => ({
-  displayTitle: state.app.displayTitle,
-  infoPageVisable: state.app.infoPageVisable,
-  chosenArtwork: state.app.chosenArtwork,
-  detailPageVisable: state.app.detailPageVisable,
-  chosenArtWorkImages: state.app.chosenArtWorkImages,
-  chosenImageIndex: state.app.chosenImageIndex,
+  displayTitle: state.reducer.displayTitle,
+  infoPageVisable: state.reducer.infoPageVisable,
+  chosenArtwork: state.reducer.chosenArtwork,
+  detailPageVisable: state.reducer.detailPageVisable,
+  chosenArtWorkImages: state.reducer.chosenArtWorkImages,
+  chosenImageIndex: state.reducer.chosenImageIndex,
+  device: state.responsiveReducer.device,
 })
 
 export default connect(mapStateToProps)(Footer)

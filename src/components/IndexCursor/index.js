@@ -19,7 +19,7 @@ const IndexCursor = ({ hoveredImageIndex, length, display, mouse }) => (
 )
 
 const mapStateToProps = state => ({
-  mouse: state.app.mouse,
+  mouse: state.reducer.mouse,
 })
 
 export default connect(mapStateToProps)(IndexCursor)

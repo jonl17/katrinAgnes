@@ -1,8 +1,8 @@
 /* all generic sizes */
 const size = {
-  mobile: "425px",
+  mobile: "500px",
   tablet: "768px",
-  browser: "1024px",
+  browser: "950px",
 }
 
 export const device = {

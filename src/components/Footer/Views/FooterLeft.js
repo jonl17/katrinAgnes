@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { device } from "../../../constants/screenSizes"
 
 import Text from "./Styled/FooterText"

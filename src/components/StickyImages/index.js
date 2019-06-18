@@ -2,7 +2,7 @@ import React from "react"
 
 import { connect } from "react-redux"
 import { generateRandomPixels } from "../../methods"
-import { fillXcordArray, fillYcordArray } from "../../state/app"
+import { fillXcordArray, fillYcordArray } from "../../state/actions"
 
 import ImageContainer from "./Views/ImageContainer"
 import Image from "../Image"
@@ -46,8 +46,8 @@ class StickyImages extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  randomWidth: state.app.randomWidth,
-  randomHeight: state.app.randomHeight,
+  randomWidth: state.reducer.randomWidth,
+  randomHeight: state.reducer.randomHeight,
 })
 
 export default connect(mapStateToProps)(StickyImages)

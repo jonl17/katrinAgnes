@@ -6,7 +6,7 @@ import {
   chooseArtwork,
   setArtWorkImages,
   setImagesOnDisplay,
-} from "../../state/app"
+} from "../../state/actions"
 
 import { initializeImagesOnDisplayArray } from "../../methods"
 
@@ -47,40 +47,28 @@ class Image extends React.Component {
     this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
   }
   render() {
-    if (this.state.mobile) {
-      return (
-        <IMG
-          className="frontpage-IMG"
-          handleClick={() => this.handleClick()}
-          handleHover={() => this.handleHover()}
-          handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
-          style={{}}
-          src={this.props.featuredImage.childImageSharp.fluid}
-          screenSize={`mobile`}
-        />
-      )
-    } else {
-      return (
-        <IMG
-          className="frontpage-IMG"
-          handleClick={() => this.handleClick()}
-          handleHover={() => this.handleHover()}
-          handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
-          style={this.props.style}
-          src={this.props.featuredImage.childImageSharp.fluid}
-          screenSize={`browser`}
-        />
-      )
-    }
+    return (
+      <IMG
+        device={this.props.device}
+        className="frontpage-IMG"
+        handleClick={() => this.handleClick()}
+        handleHover={() => this.handleHover()}
+        handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
+        style={this.props.device === `mobile` ? {} : this.props.style}
+        src={this.props.featuredImage.childImageSharp.fluid}
+        screenSize={this.props.device}
+      />
+    )
   }
 }
 
 const mapStateToProps = state => ({
-  displayTitle: state.app.displayTitle,
-  detailPageVisable: state.app.detailPageVisable,
-  chosenArtwork: state.app.chosenArtwork,
-  chosenArtWorkImages: state.app.chosenArtWorkImages,
-  imagesOnDisplay: state.app.imagesOnDisplay,
+  displayTitle: state.reducer.displayTitle,
+  detailPageVisable: state.reducer.detailPageVisable,
+  chosenArtwork: state.reducer.chosenArtwork,
+  chosenArtWorkImages: state.reducer.chosenArtWorkImages,
+  imagesOnDisplay: state.reducer.imagesOnDisplay,
+  device: state.responsiveReducer.device,
 })
 
 export default connect(mapStateToProps)(Image)

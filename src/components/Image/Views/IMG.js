@@ -1,28 +1,39 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Img from "gatsby-image"
 
 import { device } from "../../../constants/screenSizes"
 
 const Image = styled.div`
-  @media ${device.mobile} {
-  }
-  @media ${device.tablet} {
-    width: 40vw;
-  }
-  @media ${device.browser} {
-    width: 25vw;
-  }
+  ${props =>
+    props.device === `browser` &&
+    css`
+      width: 25vw;
+      max-height: 500px;
+      top: 0;
+    `}
+  ${props =>
+    props.device === `tablet` &&
+    css`
+      width: 40vw;
+      max-height: 500px;
+      top: 0;
+    `}
+  ${props =>
+    props.device === `mobile` &&
+    css`
+      width: auto;
+      max-height: 200px;
+      top: 50px;
+      padding: 50px;
+    `}
   &&:hover {
     cursor: pointer;
   }
   position: -webkit-sticky !important;
   position: sticky !important;
-  top: 0;
-
   height: auto;
   background-size: contain;
-  max-height: 500px;
   object-fit: contain;
 `
 
@@ -33,9 +44,10 @@ export default ({
   handleOut,
   style,
   src,
-  screenSize,
+  device,
 }) => (
   <Image
+    device={device}
     onClick={() => handleClick()}
     onMouseOver={() => handleHover()}
     onMouseOut={() => handleOut()}

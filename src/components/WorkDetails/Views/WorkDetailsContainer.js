@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { device } from "../../../constants/screenSizes"
 
 const Container = styled.div`
   height: 100vh;

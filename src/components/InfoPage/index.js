@@ -1,7 +1,7 @@
 import React from "react"
 import "./index.css"
 import { connect } from "react-redux"
-import { showInfoPage } from "../../state/app"
+import { showInfoPage } from "../../state/actions"
 
 import InfoPageContainer from "./Views/InfoPageContainer"
 import InfoPageLeft from "./Views/InfopageLeft"
@@ -22,7 +22,7 @@ const InfoPage = ({ infoPageVisable, dispatch, data }) => {
 }
 
 const mapStateToProps = state => ({
-  infoPageVisable: state.app.infoPageVisable,
+  infoPageVisable: state.reducer.infoPageVisable,
 })
 
 export default connect(mapStateToProps)(InfoPage)

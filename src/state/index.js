@@ -1,4 +1,5 @@
 import { combineReducers } from "redux"
-import app from "./app"
+import reducer from "./reducer"
+import responsiveReducer from "./responsiveReducer"
 
-export default combineReducers({ app })
+export default combineReducers({ reducer, responsiveReducer })

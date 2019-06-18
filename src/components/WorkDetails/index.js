@@ -5,7 +5,7 @@ import {
   setMouseCords,
   activateIndexPointer,
   setShiftzoneSize,
-} from "../../state/app"
+} from "../../state/actions"
 
 import Img from "gatsby-image"
 
@@ -111,13 +111,13 @@ class WorkDetails extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  detailPageVisable: state.app.detailPageVisable,
-  chosenArtwork: state.app.chosenArtwork,
-  chosenArtWorkImages: state.app.chosenArtWorkImages,
-  indexPointerActive: state.app.indexPointerActive,
-  imagesOnDisplay: state.app.imagesOnDisplay,
-  chosenImageIndex: state.app.chosenImageIndex,
-  shiftZoneSize: state.app.shiftZoneSize,
+  detailPageVisable: state.reducer.detailPageVisable,
+  chosenArtwork: state.reducer.chosenArtwork,
+  chosenArtWorkImages: state.reducer.chosenArtWorkImages,
+  indexPointerActive: state.reducer.indexPointerActive,
+  imagesOnDisplay: state.reducer.imagesOnDisplay,
+  chosenImageIndex: state.reducer.chosenImageIndex,
+  shiftZoneSize: state.reducer.shiftZoneSize,
 })
 
 export default connect(mapStateToProps)(WorkDetails)
