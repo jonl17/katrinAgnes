@@ -5,13 +5,15 @@ import { device } from "../../../constants/screenSizes"
 import Text from "./Styled/FooterText"
 
 const Container = styled.div`
+  @media ${device.mobile} {
+    display: ${props => (props.header ? "flex" : "none")}
+  } 
   @media ${device.tablet} {
     display: ${props => (props.header ? "flex" : "none")}
   } 
   @media ${device.browser} {
     display: ${props => (props.footer ? "flex" : "none")}
   }
-  display: flex;
   flex-direction: column;
   margin-top: auto;
   padding: ${props => (props.footer ? "0 0 35px 35px" : "35px 0 0 35px")};
@@ -25,6 +27,7 @@ const Container = styled.div`
   } */
 `
 /* Footer Left */
+
 export default ({ title, technique, year, footer, header }) => (
   <Container header={header} footer={footer}>
     <Text>{title}</Text>

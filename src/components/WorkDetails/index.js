@@ -23,6 +23,17 @@ const imageWrapStyle = {
 }
 
 class WorkDetails extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      mobile: false,
+    }
+  }
+  componentDidMount() {
+    if (window.innerWidth <= 500) {
+      this.setState({ mobile: true })
+    }
+  }
   handleMouse(e) {
     this.props.dispatch(setMouseCords(e.clientX, e.clientY))
   }
@@ -58,7 +69,11 @@ class WorkDetails extends React.Component {
           <Img
             onLoad={() => this.findWidth()}
             className="image-wrap"
-            style={imageWrapStyle}
+            style={
+              this.state.mobile
+                ? { ...imageWrapStyle, height: `auto` }
+                : imageWrapStyle
+            }
             fluid={
               imagesOnDisplay[chosenImageIndex].image.childImageSharp.fluid
             }
@@ -72,9 +87,6 @@ class WorkDetails extends React.Component {
             loading={`lazy`}
             ref={"inner"}
           />
-          {/* <ExitButton
-            handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
-          /> */}
           <ShiftButton
             height={shiftZoneSize.height + "px"}
             margTop={(shiftZoneSize.height / 2) * -1 + "px"}

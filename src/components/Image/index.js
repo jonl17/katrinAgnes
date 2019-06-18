@@ -13,6 +13,19 @@ import { initializeImagesOnDisplayArray } from "../../methods"
 import IMG from "./Views/IMG"
 
 class Image extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      mobile: false,
+    }
+  }
+  componentDidMount() {
+    if (window.innerWidth <= 500) {
+      this.setState({
+        mobile: true,
+      })
+    }
+  }
   handleHover() {
     this.props.dispatch(toggleDisplayTitle(this.props.alt))
     this.props.dispatch(
@@ -34,16 +47,31 @@ class Image extends React.Component {
     this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
   }
   render() {
-    return (
-      <IMG
-        className="frontpage-IMG"
-        handleClick={() => this.handleClick()}
-        handleHover={() => this.handleHover()}
-        handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
-        style={this.props.style}
-        src={this.props.featuredImage.childImageSharp.fluid}
-      />
-    )
+    if (this.state.mobile) {
+      return (
+        <IMG
+          className="frontpage-IMG"
+          handleClick={() => this.handleClick()}
+          handleHover={() => this.handleHover()}
+          handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
+          style={{}}
+          src={this.props.featuredImage.childImageSharp.fluid}
+          screenSize={`mobile`}
+        />
+      )
+    } else {
+      return (
+        <IMG
+          className="frontpage-IMG"
+          handleClick={() => this.handleClick()}
+          handleHover={() => this.handleHover()}
+          handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
+          style={this.props.style}
+          src={this.props.featuredImage.childImageSharp.fluid}
+          screenSize={`browser`}
+        />
+      )
+    }
   }
 }
 
