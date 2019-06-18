@@ -13,9 +13,13 @@ class Wrap extends React.Component {
     })
   }
   render() {
-    const { children } = this.props
-    return <Container>{children}</Container>
+    const { children, device } = this.props
+    return <Container device={device}>{children}</Container>
   }
 }
 
-export default connect()(Wrap)
+const mapStateToProps = state => ({
+  device: state.responsiveReducer.device,
+})
+
+export default connect(mapStateToProps)(Wrap)

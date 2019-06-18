@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export default styled.div`
   a {
@@ -8,6 +8,11 @@ export default styled.div`
   p {
     font-size: 20px;
     text-transform: lowercase;
+    ${props =>
+      props.device === `mobile` &&
+      css`
+        margin: 0 0 20px 0;
+      `}
   }
 
   html,

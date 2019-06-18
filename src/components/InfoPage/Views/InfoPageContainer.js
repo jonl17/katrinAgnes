@@ -8,7 +8,6 @@ const Container = styled.div`
   top: 0;
   left: 0;
   box-sizing: border-box;
-  padding: 25px;
   z-index: 8;
   background-color: white;
   /* grid options */
@@ -18,15 +17,18 @@ const Container = styled.div`
     css`
       grid-template-columns: 1fr;
       overflow: scroll;
+      padding: 35px 10px 35px 10px;
     `}
   ${props =>
     props.device === `browser` &&
     css`
+      padding: 25px;
       grid-template-columns: 30% 60% 10%;
     `}
     ${props =>
       props.device === `tablet` &&
       css`
+        padding: 25px;
         grid-template-columns: 1fr;
         overflow: scroll;
       `}

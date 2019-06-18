@@ -2,11 +2,11 @@ import React from "react"
 import styled from "styled-components"
 
 const NewExitButton = styled.div`
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 30px;
   position: absolute;
-  right: 35px;
-  top: 35px;
+  right: 10px;
+  top: 25px;
   &:hover {
     cursor: pointer;
   }
@@ -16,7 +16,7 @@ const NewExitButton = styled.div`
 const Line = styled.span`
   background: black;
   width: 100%;
-  height: 2.5px;
+  height: 4px;
   box-sizing: border-box;
   position: absolute;
   top: 50%;
