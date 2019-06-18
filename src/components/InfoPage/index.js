@@ -8,12 +8,15 @@ import InfoPageLeft from "./Views/InfopageLeft"
 import InfoPageCenter from "./Views/InfoPageCenter"
 import ExitButton from "../ExitButton"
 
-const InfoPage = ({ infoPageVisable, dispatch, data }) => {
+const InfoPage = ({ infoPageVisable, dispatch, data, device }) => {
   const { title, email, bio } = data.siteMetadata
   return (
-    <InfoPageContainer display={infoPageVisable ? "grid" : "none"}>
+    <InfoPageContainer
+      device={device}
+      display={infoPageVisable ? "grid" : "none"}
+    >
       <InfoPageLeft name={title} email={email} instagram={"instagram"} />
-      <InfoPageCenter biography={bio} />
+      <InfoPageCenter device={device} biography={bio} />
       <ExitButton
         handleClick={() => dispatch(showInfoPage(!infoPageVisable))}
       />
@@ -23,6 +26,7 @@ const InfoPage = ({ infoPageVisable, dispatch, data }) => {
 
 const mapStateToProps = state => ({
   infoPageVisable: state.reducer.infoPageVisable,
+  device: state.responsiveReducer.device,
 })
 
 export default connect(mapStateToProps)(InfoPage)

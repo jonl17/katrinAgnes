@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export default styled.p`
   position: ${props => (props.information ? "absolute" : "inherit")};
@@ -9,7 +9,25 @@ export default styled.p`
   margin: 0;
   text-align: ${props => (props.right ? "right" : "inherit")};
   padding: ${props => (props.right ? "35px" : "auto")};
-  &:hover {
-    cursor: ${props => (props.information ? "pointer" : "inherit")};
-  }
+  ${props =>
+    props.information &&
+    css`
+      &&:hover {
+        cursor: pointer;
+      }
+    `}
+  ${props =>
+    props.device === `mobile` &&
+    css`
+      &&:hover {
+        cursor: pointer;
+      }
+    `}
+    ${props =>
+      props.device === `browser` &&
+      css`
+        &&:hover {
+          cursor: inherit;
+        }
+      `}
 `

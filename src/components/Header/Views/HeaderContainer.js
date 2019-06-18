@@ -9,4 +9,5 @@ export default styled.div`
   z-index: 4;
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-areas: "... area";
 `

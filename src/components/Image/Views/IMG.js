@@ -2,8 +2,6 @@ import React from "react"
 import styled, { css } from "styled-components"
 import Img from "gatsby-image"
 
-import { device } from "../../../constants/screenSizes"
-
 const Image = styled.div`
   ${props =>
     props.device === `browser` &&

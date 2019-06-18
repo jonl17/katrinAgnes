@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 const Container = styled.div`
   height: 100%;
@@ -13,8 +13,26 @@ const Container = styled.div`
   background-color: white;
   /* grid options */
   display: ${props => props.display};
-  grid-template-columns: 30% 60% 10%;
+  ${props =>
+    props.device === `mobile` &&
+    css`
+      grid-template-columns: 1fr;
+      overflow: scroll;
+    `}
+  ${props =>
+    props.device === `browser` &&
+    css`
+      grid-template-columns: 30% 60% 10%;
+    `}
+    ${props =>
+      props.device === `tablet` &&
+      css`
+        grid-template-columns: 1fr;
+        overflow: scroll;
+      `}
 `
-export default ({ children, display }) => (
-  <Container display={display}>{children}</Container>
+export default ({ children, display, device }) => (
+  <Container device={device} display={display}>
+    {children}
+  </Container>
 )

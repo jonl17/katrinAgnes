@@ -27,6 +27,7 @@ const Footer = ({
         year={detailPageVisable ? chosenArtwork.year : ""}
       />
       <FooterRight
+        device={device}
         display={detailPageVisable ? "none" : "block"}
         onClick={() => dispatch(showInfoPage(!infoPageVisable))}
         info={info}
