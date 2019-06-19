@@ -1,12 +1,30 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import { connect } from "react-redux"
 
 const NewExitButton = styled.div`
   height: 30px;
   width: 30px;
   position: absolute;
-  right: 10px;
-  top: 25px;
+  ${props =>
+    props.device === `browser` &&
+    css`
+      right: 35px;
+      top: 35px;
+    `}
+  ${props =>
+    props.device === `tablet` &&
+    css`
+      right: 35px;
+      top: 35px;
+    `}
+  ${props =>
+    props.device === `mobile` &&
+    css`
+      right: 10px;
+      top: 35px;
+    `}
+
   &:hover {
     cursor: pointer;
   }
@@ -25,9 +43,19 @@ const Line = styled.span`
 `
 
 /* Exit btn */
-export default ({ handleClick, display }) => (
-  <NewExitButton display={display} onClick={() => handleClick()}>
+const ExitBtn = ({ handleClick, display, device }) => (
+  <NewExitButton
+    device={device}
+    display={display}
+    onClick={() => handleClick()}
+  >
     <Line differ />
     <Line />
   </NewExitButton>
 )
+
+const mapStateToProps = state => ({
+  device: state.responsiveReducer.device,
+})
+
+export default connect(mapStateToProps)(ExitBtn)
