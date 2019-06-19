@@ -10,7 +10,7 @@ const imageStyle = {
 }
 const style = {
   height: `100%`,
-  marginTop: `50vh`,
+  marginTop: `40vh`,
 }
 const paragraphStyle = {
   position: `sticky`,
@@ -26,7 +26,11 @@ export default ({ artworks }) => (
       <>
         <Img
           key={index}
-          style={{ ...style, zIndex: `${artworks.edges.length}` }}
+          style={{
+            ...style,
+            zIndex: `${artworks.edges.length}`,
+            overflow: `visible`,
+          }}
           imgStyle={{ ...imageStyle }}
           fluid={artwork.node.frontmatter.featuredImage.childImageSharp.fluid}
         />
