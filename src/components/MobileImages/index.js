@@ -23,7 +23,7 @@ const paragraphStyle = {
 export default ({ artworks }) => (
   <Container>
     {artworks.edges.map((artwork, index) => (
-      <>
+      <div style={{ position: `sticky`, top: `20vh` }}>
         <Img
           key={index}
           style={{
@@ -37,7 +37,7 @@ export default ({ artworks }) => (
         <p key={index + 100} style={{ ...paragraphStyle, zIndex: `${index}` }}>
           {artwork.node.frontmatter.title}
         </p>
-      </>
+      </div>
     ))}
   </Container>
 )
