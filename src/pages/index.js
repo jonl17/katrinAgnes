@@ -43,8 +43,15 @@ export const AllImages = graphql`
             forsidu_mynd {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 700) {
-                    ...GatsbyImageSharpFluid
+                  fluid(
+                    maxWidth: 700
+                    traceSVG: {
+                      color: "#FCF1F1"
+                      turnPolicy: TURNPOLICY_MINORITY
+                      blackOnWhite: false
+                    }
+                  ) {
+                    ...GatsbyImageSharpFluid_tracedSVG
                   }
                 }
               }
@@ -54,7 +61,7 @@ export const AllImages = graphql`
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 700) {
-                      ...GatsbyImageSharpFluid
+                      ...GatsbyImageSharpFluid_noBase64
                     }
                   }
                 }
