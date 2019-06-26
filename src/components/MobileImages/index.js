@@ -32,10 +32,10 @@ export default ({ artworks }) => (
             overflow: `visible`,
           }}
           imgStyle={{ ...imageStyle }}
-          fluid={artwork.node.frontmatter.featuredImage.childImageSharp.fluid}
+          fluid={artwork.node.acf.forsidu_mynd.localFile.childImageSharp.fluid}
         />
         <p key={index + 100} style={{ ...paragraphStyle, zIndex: `${index}` }}>
-          {artwork.node.frontmatter.title}
+          {artwork.node.acf.title}
         </p>
       </>
     ))}
