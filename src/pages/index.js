@@ -19,7 +19,7 @@ const index = ({ data, device }) => {
       ) : (
         <StickyImages artworks={data.allWordpressAcfVerk} />
       )}
-      <InfoPage data={data.site} />
+      <InfoPage data={data} />
       <WorkDetails />
       <Footer info={"Information"} />
     </Wrap>
@@ -73,11 +73,16 @@ export const AllImages = graphql`
         }
       }
     }
-    site {
-      siteMetadata {
-        title
-        email
-        bio
+    allWordpressAcfInformation {
+      edges {
+        node {
+          acf {
+            nafn
+            email
+            instagram_linkur
+            about_texti
+          }
+        }
       }
     }
   }
