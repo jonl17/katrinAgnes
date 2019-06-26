@@ -15,9 +15,9 @@ const index = ({ data, device }) => {
     <Wrap>
       <Header info={"Information"} />
       {device === `mobile` ? (
-        <MobileImages artworks={data.allMarkdownRemark} />
+        <MobileImages artworks={data.allWordpressAcfVerk} />
       ) : (
-        <StickyImages artworks={data.allMarkdownRemark} />
+        <StickyImages artworks={data.allWordpressAcfVerk} />
       )}
       <InfoPage data={data.site} />
       <WorkDetails />
@@ -34,30 +34,34 @@ export default connect(mapStateToProps)(index)
 
 export const AllImages = graphql`
   query testerTemper {
-    allMarkdownRemark {
+    allWordpressAcfVerk {
       edges {
         node {
           id
-          frontmatter {
-            title
-            technique
+          acf {
+            titill
+            forsidu_mynd {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 700) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+            myndir {
+              mynd {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 700) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+            material
             year
-            images {
-              id
-              name
-              childImageSharp {
-                fluid(maxWidth: 700) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
-            featuredImage {
-              childImageSharp {
-                fluid(maxWidth: 700) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
           }
         }
       }

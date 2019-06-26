@@ -12,7 +12,7 @@ export const generateRandomPixels = (limit, length, setFixed) => {
   for (let i = 0; i < length; i++) {
     pixels.push(randInt(limit))
   }
-  if (setFixed) {
+  if (setFixed && length > 1) {
     pixels[pixels.length - 1] = -100
     // if (pixels.length > 3) pixels[pixels.length - 3] = 400
   }

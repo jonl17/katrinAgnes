@@ -30,7 +30,8 @@ class Image extends React.Component {
     this.props.dispatch(toggleDisplayTitle(this.props.alt))
     this.props.dispatch(
       chooseArtwork({
-        featuredImage: this.props.featuredImage.childImageSharp.fluid.src,
+        featuredImage: this.props.featuredImage.localFile.childImageSharp.fluid
+          .src,
         title: this.props.alt,
         technique: this.props.technique,
         year: this.props.year,
@@ -55,7 +56,7 @@ class Image extends React.Component {
         handleHover={() => this.handleHover()}
         handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
         style={this.props.device === `mobile` ? {} : this.props.style}
-        src={this.props.featuredImage.childImageSharp.fluid}
+        src={this.props.featuredImage.localFile.childImageSharp.fluid}
         screenSize={this.props.device}
       />
     )

@@ -27,17 +27,17 @@ class StickyImages extends React.Component {
       <ImageContainer>
         {edges.map((artwork, index) => (
           <Image
-            alt={artwork.node.frontmatter.title}
+            alt={artwork.node.acf.titill}
             key={artwork.node.id}
             style={{
               transform: `translate(${randomWidth[index]}px, ${
                 randomHeight[index]
               }px)`,
             }}
-            images={artwork.node.frontmatter.images}
-            featuredImage={artwork.node.frontmatter.featuredImage}
-            technique={artwork.node.frontmatter.technique}
-            year={artwork.node.frontmatter.year}
+            images={artwork.node.acf.myndir}
+            featuredImage={artwork.node.acf.forsidu_mynd}
+            technique={artwork.node.acf.material}
+            year={artwork.node.acf.year}
           />
         ))}
       </ImageContainer>
