@@ -4,9 +4,13 @@ export default styled.p`
   position: ${props => (props.information ? "absolute" : "inherit")};
   margin: 0 auto;
   right: 0;
-  text-transform: lowercase;
+  bottom: 0;
+  ${props =>
+    props.heiti
+      ? "text-transform: inherit !important"
+      : "text-transform: lowercase"};
   margin: 0;
-  padding: ${props => (props.right ? "35px" : "auto")};
+  padding: ${props => (props.right ? "25px" : "auto")};
   text-align: ${props => (props.right ? "right" : "inherit")};
 
   ${props =>

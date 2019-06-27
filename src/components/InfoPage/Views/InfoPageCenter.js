@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
+import { Text } from "../Views/Styled"
 
 const Center = styled.div`
   box-sizing: border-box;
@@ -9,16 +10,16 @@ const Center = styled.div`
       width: 100%;
     `}
   ${props =>
-    props.device === `browser` ||
-    (props.device === `tablet` &&
-      css`
-        width: 75%;
-      `)}
+    props.device === `browser` &&
+    css`
+      width: 600px;
+      line-height: 1.5;
+    `}
 `
 
 /* Info page Center */
 export default ({ biography, device }) => (
   <Center device={device}>
-    <p>{biography}</p>
+    <Text heiti>{biography}</Text>
   </Center>
 )
