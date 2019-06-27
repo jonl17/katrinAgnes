@@ -17,7 +17,7 @@ const Container = styled.div`
   flex-direction: column;
   margin-top: auto;
   padding: ${props => (props.footer ? "0 0 15px 25px" : "35px 0 0 35px")};
-  line-height: 1.5;
+  line-height: 1.3;
 `
 /* Footer Left */
 

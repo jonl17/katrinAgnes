@@ -17,3 +17,8 @@ html,
 body {
   margin: 0;
 }
+
+::selection {
+  background: white; /* WebKit/Blink Browsers */
+  color: rgba(255, 255, 0, 0.719);
+}
