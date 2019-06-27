@@ -3,17 +3,21 @@ import styled from "styled-components"
 import { Text } from "../Views/Styled"
 
 const Container = styled.div`
-  padding: 15px 0 15px 0;
+  padding: 0 0 25px 0;
 `
 
 const PDFtexts = ({ titill, hofundur, year, utgefandi, pdf }) => {
   return (
     <Container>
-      <Text heiti>Texts</Text>
       <div>
-        <a style={{ textDecoration: "underline" }} href={pdf.localFile.url}>
-          {" "}
-          <Text heiti>{titill}</Text>{" "}
+        <a
+          download
+          style={{ textDecoration: "underline" }}
+          href={pdf.localFile.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Text heiti>{titill}</Text>
         </a>
         <Text heiti>
           {hofundur}, {year}

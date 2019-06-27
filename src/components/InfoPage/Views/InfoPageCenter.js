@@ -18,18 +18,25 @@ const Center = styled.div`
     `}
 `
 
+const Container = styled.div`
+  padding-top: 20px;
+`
+
 /* Info page Center */
 export default ({ biography, device, texts }) => (
   <Center device={device}>
     <Text heiti>{biography}</Text>
-    {texts.edges.map(item => (
-      <PDFtexts
-        titill={item.node.acf.titill}
-        hofundur={item.node.acf.hofundur}
-        year={item.node.acf.year}
-        utgefandi={item.node.acf.utgefandi}
-        pdf={item.node.acf.pdf}
-      />
-    ))}
+    <Container>
+      <Text heiti>Texts</Text>
+      {texts.edges.map(item => (
+        <PDFtexts
+          titill={item.node.acf.titill}
+          hofundur={item.node.acf.hofundur}
+          year={item.node.acf.year}
+          utgefandi={item.node.acf.utgefandi}
+          pdf={item.node.acf.pdf}
+        />
+      ))}
+    </Container>
   </Center>
 )
