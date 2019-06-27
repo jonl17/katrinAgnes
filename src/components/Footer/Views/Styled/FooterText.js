@@ -10,7 +10,7 @@ export default styled.p`
       ? "text-transform: inherit !important"
       : "text-transform: lowercase"};
   margin: 0;
-  padding: ${props => (props.right ? "25px" : "auto")};
+  padding: ${props => (props.right ? "20px" : "auto")};
   text-align: ${props => (props.right ? "right" : "inherit")};
 
   ${props =>
