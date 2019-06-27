@@ -16,18 +16,20 @@ const Container = styled.div`
     props.device === `mobile` &&
     css`
       grid-template-columns: 1fr;
-      overflow: scroll;
+      overflow-y: scroll;
       padding: 35px 10px 35px 10px;
     `}
   ${props =>
     props.device === `browser` &&
     css`
+      overflow-y: scroll;
       padding: 25px;
       grid-template-columns: 30% 60% 10%;
     `}
     ${props =>
       props.device === `tablet` &&
       css`
+        overflow-y: scroll;
         padding: 25px;
         grid-template-columns: 1fr;
         overflow: scroll;

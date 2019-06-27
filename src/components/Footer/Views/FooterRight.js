@@ -6,9 +6,11 @@ import Text from "./Styled/FooterText"
 export default ({ onClick, info, detailPageVisable, device }) => {
   if (!detailPageVisable && device !== `mobile`) {
     return (
-      <Text onClick={() => onClick()} information right>
-        {info}
-      </Text>
+      <>
+        <Text onClick={() => onClick()} information right>
+          {info}
+        </Text>
+      </>
     )
   } else {
     return <div />

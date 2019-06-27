@@ -19,7 +19,10 @@ const index = ({ data, device }) => {
       ) : (
         <StickyImages artworks={data.allWordpressAcfVerk} />
       )}
-      <InfoPage data={data} />
+      <InfoPage
+        texts={data.allWordpressAcfText}
+        info={data.allWordpressAcfInformation}
+      />
       <WorkDetails />
       <Footer info={"Information"} />
     </Wrap>
@@ -81,6 +84,23 @@ export const AllImages = graphql`
             email
             instagram_linkur
             about_texti
+          }
+        }
+      }
+    }
+    allWordpressAcfText {
+      edges {
+        node {
+          acf {
+            titill
+            hofundur
+            year
+            utgefandi
+            pdf {
+              localFile {
+                url
+              }
+            }
           }
         }
       }

@@ -1,5 +1,4 @@
 import React from "react"
-import "./index.css"
 import { connect } from "react-redux"
 import { showInfoPage } from "../../state/actions"
 
@@ -8,20 +7,20 @@ import InfoPageLeft from "./Views/InfopageLeft"
 import InfoPageCenter from "./Views/InfoPageCenter"
 import ExitButton from "../ExitButton"
 
-const InfoPage = ({ infoPageVisable, dispatch, data, device }) => {
+const InfoPage = ({ infoPageVisable, dispatch, info, device, texts }) => {
   const {
     nafn,
     email,
     instagram_linkur,
     about_texti: bio,
-  } = data.allWordpressAcfInformation.edges[0].node.acf
+  } = info.edges[0].node.acf
   return (
     <InfoPageContainer
       device={device}
       display={infoPageVisable ? "grid" : "none"}
     >
       <InfoPageLeft name={nafn} email={email} instagram={instagram_linkur} />
-      <InfoPageCenter device={device} biography={bio} />
+      <InfoPageCenter device={device} biography={bio} texts={texts} />
       <ExitButton
         handleClick={() => dispatch(showInfoPage(!infoPageVisable))}
       />
