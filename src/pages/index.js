@@ -13,7 +13,7 @@ import MobileImages from "../components/MobileImages"
 const index = ({ data, device }) => {
   return (
     <Wrap>
-      <Header info={"Information"} />
+      {/* <Header info={"Information"} />
       {device === `mobile` ? (
         <MobileImages artworks={data.allWordpressAcfVerk} />
       ) : (
@@ -24,7 +24,8 @@ const index = ({ data, device }) => {
         info={data.allWordpressAcfInformation}
       />
       <WorkDetails />
-      <Footer info={"Information"} />
+      <Footer info={"Information"} /> */}
+      <h1>site under construction</h1>
     </Wrap>
   )
 }
