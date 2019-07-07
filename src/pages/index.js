@@ -12,21 +12,20 @@ import MobileImages from "../components/MobileImages"
 
 const index = ({ data, device }) => {
   return (
-    <p>site under construction</p>
-    // <Wrap>
-    //   <Header info={"Information"} />
-    //   {device === `mobile` ? (
-    //     <MobileImages artworks={data.allWordpressAcfVerk} />
-    //   ) : (
-    //     <StickyImages artworks={data.allWordpressAcfVerk} />
-    //   )}
-    //   <InfoPage
-    //     texts={data.allWordpressAcfText}
-    //     info={data.allWordpressAcfInformation}
-    //   />
-    //   <WorkDetails />
-    //   <Footer info={"Information"} />
-    // </Wrap>
+    <Wrap>
+      <Header info={"Information"} />
+      {device === `mobile` ? (
+        <MobileImages artworks={data.allWordpressAcfVerk} />
+      ) : (
+        <StickyImages artworks={data.allWordpressAcfVerk} />
+      )}
+      <InfoPage
+        texts={data.allWordpressAcfText}
+        info={data.allWordpressAcfInformation}
+      />
+      <WorkDetails />
+      <Footer info={"Information"} />
+    </Wrap>
   )
 }
 
@@ -36,75 +35,75 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps)(index)
 
-// export const AllImages = graphql`
-//   query testerTemper {
-//     allWordpressAcfVerk {
-//       edges {
-//         node {
-//           id
-//           acf {
-//             titill
-//             forsidu_mynd {
-//               localFile {
-//                 childImageSharp {
-//                   fluid(
-//                     maxWidth: 700
-//                     traceSVG: {
-//                       color: "#FCF1F1"
-//                       turnPolicy: TURNPOLICY_MINORITY
-//                       blackOnWhite: false
-//                     }
-//                   ) {
-//                     ...GatsbyImageSharpFluid_tracedSVG
-//                   }
-//                 }
-//               }
-//             }
-//             myndir {
-//               mynd {
-//                 localFile {
-//                   childImageSharp {
-//                     fluid(maxWidth: 700) {
-//                       ...GatsbyImageSharpFluid_noBase64
-//                     }
-//                   }
-//                 }
-//               }
-//             }
-//             material
-//             year
-//           }
-//         }
-//       }
-//     }
-//     allWordpressAcfInformation {
-//       edges {
-//         node {
-//           acf {
-//             nafn
-//             email
-//             instagram_linkur
-//             about_texti
-//           }
-//         }
-//       }
-//     }
-//     allWordpressAcfText {
-//       edges {
-//         node {
-//           acf {
-//             titill
-//             hofundur
-//             year
-//             utgefandi
-//             pdf {
-//               localFile {
-//                 url
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const AllImages = graphql`
+  query testerTemper {
+    allWordpressAcfVerk {
+      edges {
+        node {
+          id
+          acf {
+            titill
+            forsidu_mynd {
+              localFile {
+                childImageSharp {
+                  fluid(
+                    maxWidth: 700
+                    traceSVG: {
+                      color: "#FCF1F1"
+                      turnPolicy: TURNPOLICY_MINORITY
+                      blackOnWhite: false
+                    }
+                  ) {
+                    ...GatsbyImageSharpFluid_tracedSVG
+                  }
+                }
+              }
+            }
+            myndir {
+              mynd {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 700) {
+                      ...GatsbyImageSharpFluid_noBase64
+                    }
+                  }
+                }
+              }
+            }
+            material
+            year
+          }
+        }
+      }
+    }
+    allWordpressAcfInformation {
+      edges {
+        node {
+          acf {
+            nafn
+            email
+            instagram_linkur
+            about_texti
+          }
+        }
+      }
+    }
+    allWordpressAcfText {
+      edges {
+        node {
+          acf {
+            titill
+            hofundur
+            year
+            utgefandi
+            pdf {
+              localFile {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

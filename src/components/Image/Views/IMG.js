@@ -51,6 +51,6 @@ export default ({
     onMouseOut={() => handleOut()}
     style={style}
   >
-    <Img fluid={src} />
+    <Img loading={"eager"} fadeIn={false} fluid={src} />
   </Image>
 )
