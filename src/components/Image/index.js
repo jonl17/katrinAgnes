@@ -48,14 +48,15 @@ class Image extends React.Component {
     this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
   }
   render() {
+    console.log(this.props.style)
     return (
       <IMG
+        style={this.props.device === `mobile` ? {} : this.props.style}
         device={this.props.device}
         className="frontpage-IMG"
         handleClick={() => this.handleClick()}
         handleHover={() => this.handleHover()}
         handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
-        style={this.props.device === `mobile` ? {} : this.props.style}
         src={this.props.featuredImage.localFile.childImageSharp.fluid}
         screenSize={this.props.device}
       />
