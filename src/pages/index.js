@@ -25,7 +25,7 @@ const index = ({ data, device }) => {
       />
       <WorkDetails />
       <Footer info={"Information"} /> */}
-      <h1>site under construction</h1>
+      <h1 style={{ textAlign: "center" }}>site under construction</h1>
     </Wrap>
   )
 }
@@ -36,75 +36,68 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps)(index)
 
-export const AllImages = graphql`
-  query testerTemper {
-    allWordpressAcfVerk {
-      edges {
-        node {
-          id
-          acf {
-            titill
-            forsidu_mynd {
-              localFile {
-                childImageSharp {
-                  fluid(
-                    maxWidth: 700
-                    traceSVG: {
-                      color: "#FCF1F1"
-                      turnPolicy: TURNPOLICY_MINORITY
-                      blackOnWhite: false
-                    }
-                  ) {
-                    ...GatsbyImageSharpFluid_tracedSVG
-                  }
-                }
-              }
-            }
-            myndir {
-              mynd {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 700) {
-                      ...GatsbyImageSharpFluid_noBase64
-                    }
-                  }
-                }
-              }
-            }
-            material
-            year
-          }
-        }
-      }
-    }
-    allWordpressAcfInformation {
-      edges {
-        node {
-          acf {
-            nafn
-            email
-            instagram_linkur
-            about_texti
-          }
-        }
-      }
-    }
-    allWordpressAcfText {
-      edges {
-        node {
-          acf {
-            titill
-            hofundur
-            year
-            utgefandi
-            pdf {
-              localFile {
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const AllImages = graphql`
+//   query testerTemper {
+//     allWordpressAcfVerk {
+//       edges {
+//         node {
+//           id
+//           acf {
+//             titill
+//             forsidu_mynd {
+//               localFile {
+//                 childImageSharp {
+//                   fluid(maxWidth: 700) {
+//                     ...GatsbyImageSharpFluid_noBase64
+//                   }
+//                 }
+//               }
+//             }
+//             myndir {
+//               mynd {
+//                 localFile {
+//                   childImageSharp {
+//                     fluid(maxWidth: 700) {
+//                       ...GatsbyImageSharpFluid_noBase64
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//             material
+//             year
+//           }
+//         }
+//       }
+//     }
+//     allWordpressAcfInformation {
+//       edges {
+//         node {
+//           acf {
+//             nafn
+//             email
+//             instagram_linkur
+//             about_texti
+//           }
+//         }
+//       }
+//     }
+//     allWordpressAcfText {
+//       edges {
+//         node {
+//           acf {
+//             titill
+//             hofundur
+//             year
+//             utgefandi
+//             pdf {
+//               localFile {
+//                 url
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

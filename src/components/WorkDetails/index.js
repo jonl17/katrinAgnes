@@ -64,7 +64,6 @@ class WorkDetails extends React.Component {
     } = this.props
 
     if (detailPageVisable) {
-      console.log(imagesOnDisplay)
       return (
         <WorkDetailsContainer display={detailPageVisable ? "grid" : "none"}>
           <Img
