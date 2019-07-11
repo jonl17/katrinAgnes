@@ -8,7 +8,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   box-sizing: border-box;
-  padding: 100px 200px 100px 200px;
+  padding-bottom: 50px;
   background-color: white;
   display: ${props => props.display};
   align-content: center;
