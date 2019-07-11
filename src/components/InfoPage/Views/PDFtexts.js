@@ -6,14 +6,22 @@ const Container = styled.div`
   padding: 0 0 25px 0;
 `
 
-const PDFtexts = ({ titill, hofundur, year, utgefandi, pdf }) => {
+const PDFtexts = ({
+  titill,
+  hofundur,
+  year,
+  utgefandi,
+  pdf: {
+    localFile: { url },
+  },
+}) => {
   return (
     <Container>
       <div>
         <a
           download
           style={{ textDecoration: "underline" }}
-          href={pdf.localFile.url}
+          href={url}
           target="_blank"
           rel="noopener noreferrer"
         >

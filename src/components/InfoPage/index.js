@@ -7,13 +7,14 @@ import InfoPageLeft from "./Views/InfopageLeft"
 import InfoPageCenter from "./Views/InfoPageCenter"
 import ExitButton from "../ExitButton"
 
-const InfoPage = ({ infoPageVisable, dispatch, info, device, texts }) => {
-  const {
-    nafn,
-    email,
-    instagram_linkur,
-    about_texti: bio,
-  } = info.edges[0].node.acf
+const InfoPage = ({
+  infoPageVisable,
+  dispatch,
+  device,
+  texts,
+  info: { edges },
+}) => {
+  const { nafn, email, instagram_linkur, about_texti: bio } = edges[0].node.acf
   return (
     <InfoPageContainer
       device={device}

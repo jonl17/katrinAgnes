@@ -10,19 +10,23 @@ import InfoPage from "../components/InfoPage"
 import WorkDetails from "../components/WorkDetails"
 import MobileImages from "../components/MobileImages"
 
-const prufa = ({ data, device }) => {
+const prufa = ({
+  data: {
+    allWordpressAcfVerk,
+    allWordpressAcfText,
+    allWordpressAcfInformation,
+  },
+  device,
+}) => {
   return (
     <Wrap>
       <Header info={"Information"} />
       {device === `mobile` ? (
-        <MobileImages artworks={data.allWordpressAcfVerk} />
+        <MobileImages artworks={allWordpressAcfVerk} />
       ) : (
-        <StickyImages artworks={data.allWordpressAcfVerk} />
+        <StickyImages artworks={allWordpressAcfVerk} />
       )}
-      <InfoPage
-        texts={data.allWordpressAcfText}
-        info={data.allWordpressAcfInformation}
-      />
+      <InfoPage texts={allWordpressAcfText} info={allWordpressAcfInformation} />
       <WorkDetails />
       <Footer info={"Information"} />
     </Wrap>
