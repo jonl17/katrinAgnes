@@ -17,7 +17,6 @@ const Footer = ({
   chosenImageIndex,
   device,
 }) => {
-  console.log(device)
   return (
     <FooterContainer device={device}>
       <FooterLeft

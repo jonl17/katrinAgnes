@@ -48,7 +48,6 @@ class Image extends React.Component {
     this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
   }
   render() {
-    console.log(this.props.style)
     return (
       <IMG
         style={this.props.device === `mobile` ? {} : this.props.style}

@@ -9,7 +9,6 @@ import Image from "../Image"
 
 class StickyImages extends React.Component {
   componentDidMount() {
-    console.log(this.props)
     const len = this.props.artworks.edges.length
     const wideLimit = window.innerWidth / 2.5
     const innerWidth = window.innerWidth
@@ -22,8 +21,7 @@ class StickyImages extends React.Component {
   render() {
     const { edges } = this.props.artworks
     const { randomWidth, randomHeight } = this.props
-
-    return (
+    return randomWidth.length > 0 ? (
       <ImageContainer>
         {edges.map((artwork, index) => (
           <Image
@@ -41,6 +39,8 @@ class StickyImages extends React.Component {
           />
         ))}
       </ImageContainer>
+    ) : (
+      <p>loading...</p>
     )
   }
 }
