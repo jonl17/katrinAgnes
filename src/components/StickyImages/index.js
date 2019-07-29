@@ -40,7 +40,7 @@ class StickyImages extends React.Component {
         ))}
       </ImageContainer>
     ) : (
-      <p>loading...</p>
+      <p />
     )
   }
 }
