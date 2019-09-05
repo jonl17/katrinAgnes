@@ -90,7 +90,7 @@ class WorkDetails extends React.Component {
           />
           <ShiftButton
             height={shiftZoneSize.height + "px"}
-            margTop={(shiftZoneSize.height / 2) * -1 + "px"}
+            margTop={(shiftZoneSize.height / 2) * -1.3 + "px"}
             width={shiftZoneSize.width + "px"}
             margLeft={(shiftZoneSize.width / 2) * -1 + "px"}
             mouseHide={() => dispatch(activateIndexPointer(false))}
