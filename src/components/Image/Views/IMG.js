@@ -44,7 +44,7 @@ const GatsbyImg = styled(Img)`
   ${props =>
     props.focus &&
     css`
-      box-shadow: 0px 0px 1px 5px rgba(250, 234, 5, 1);
+      box-shadow: 0px 0px 10px 5px rgba(16, 16, 16, 1);
       transition: 0.2s;
     `}
 `

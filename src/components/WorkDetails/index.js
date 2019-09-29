@@ -86,7 +86,6 @@ class WorkDetails extends React.Component {
               right: 0,
               left: 0,
             }}
-            loading={`lazy`}
             ref={"inner"}
           />
           <ShiftButton

@@ -8,6 +8,11 @@ const FooterContainer = styled.div`
   height: 100px;
   left: 0;
   bottom: 0;
+  ${props =>
+    props.device === `mobile` &&
+    css`
+      top: 0;
+    `}
   grid-template-columns: auto 1fr;
   ${props =>
     props.display &&

@@ -21,7 +21,6 @@ class StickyImages extends React.Component {
   render() {
     const { edges } = this.props.artworks
     const { randomWidth, randomHeight, focusedImageIndex } = this.props
-    console.log(focusedImageIndex)
     return randomWidth.length > 0 ? (
       <ImageContainer>
         {edges.map((artwork, index) => (
