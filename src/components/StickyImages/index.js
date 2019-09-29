@@ -20,11 +20,14 @@ class StickyImages extends React.Component {
   // COME ON
   render() {
     const { edges } = this.props.artworks
-    const { randomWidth, randomHeight } = this.props
+    const { randomWidth, randomHeight, focusedImageIndex } = this.props
+    console.log(focusedImageIndex)
     return randomWidth.length > 0 ? (
       <ImageContainer>
         {edges.map((artwork, index) => (
           <Image
+            index={index}
+            focus={focusedImageIndex === index ? "set" : null}
             alt={artwork.node.acf.titill}
             key={artwork.node.id}
             style={{
@@ -40,7 +43,7 @@ class StickyImages extends React.Component {
         ))}
       </ImageContainer>
     ) : (
-      <p />
+      <></>
     )
   }
 }
@@ -48,6 +51,7 @@ class StickyImages extends React.Component {
 const mapStateToProps = state => ({
   randomWidth: state.reducer.randomWidth,
   randomHeight: state.reducer.randomHeight,
+  focusedImageIndex: state.reducer.focusedImageIndex,
 })
 
 export default connect(mapStateToProps)(StickyImages)

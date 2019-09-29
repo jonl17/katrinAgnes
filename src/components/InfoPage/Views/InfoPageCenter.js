@@ -28,8 +28,9 @@ export default ({ biography, device, texts }) => (
     <Text heiti>{biography}</Text>
     <Container>
       <Text heiti>Texts</Text>
-      {texts.edges.map(item => (
+      {texts.edges.map((item, index) => (
         <PDFtexts
+          key={index}
           titill={item.node.acf.titill}
           hofundur={item.node.acf.hofundur}
           year={item.node.acf.year}

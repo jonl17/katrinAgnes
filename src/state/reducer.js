@@ -13,6 +13,7 @@ import {
   INCREMENT_IMAGE_INDEX,
   DECREMENT_IMAGE_INDEX,
   SET_SHIFTZONE_SIZE,
+  SET_FOCUSED_IMAGE_INDEX,
 } from "./actions"
 
 const initialState = {
@@ -40,6 +41,7 @@ const initialState = {
     height: 400,
     width: 700,
   },
+  focusedImageIndex: -1,
 }
 
 /* the reducer */
@@ -105,6 +107,11 @@ export default (state = initialState, action) => {
           height: action.height,
           width: action.width,
         },
+      }
+    case SET_FOCUSED_IMAGE_INDEX:
+      return {
+        ...state,
+        focusedImageIndex: action.index,
       }
     default:
       return state

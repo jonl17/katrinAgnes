@@ -6,6 +6,7 @@ import {
   chooseArtwork,
   setArtWorkImages,
   setImagesOnDisplay,
+  setFocusedImageIndex,
 } from "../../state/actions"
 
 import { initializeImagesOnDisplayArray } from "../../methods"
@@ -45,19 +46,21 @@ class Image extends React.Component {
         initializeImagesOnDisplayArray(this.props.chosenArtWorkImages)
       )
     )
-    this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
+    this.props.dispatch(setFocusedImageIndex(this.props.index))
+    // this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
   }
   render() {
     return (
       <IMG
+        focus={this.props.focus}
         style={this.props.device === `mobile` ? {} : this.props.style}
         device={this.props.device}
-        className="frontpage-IMG"
         handleClick={() => this.handleClick()}
         handleHover={() => this.handleHover()}
         handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
         src={this.props.featuredImage.localFile.childImageSharp.fluid}
         screenSize={this.props.device}
+        front={this.state.zindex}
       />
     )
   }

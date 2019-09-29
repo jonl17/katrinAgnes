@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export default styled.div`
   height: 100px;
@@ -6,8 +6,12 @@ export default styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 4;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-areas: "... area";
+  ${props =>
+    props.show &&
+    css`
+      z-index: 2;
+    `}
 `

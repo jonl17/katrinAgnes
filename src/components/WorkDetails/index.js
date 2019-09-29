@@ -51,6 +51,7 @@ class WorkDetails extends React.Component {
       }
     }
   }
+  
   componentDidUpdate() {}
 
   render() {

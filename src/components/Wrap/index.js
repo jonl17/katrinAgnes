@@ -1,5 +1,4 @@
 import React from "react"
-import "./global.css"
 import { connect } from "react-redux"
 import { setScreenSize } from "../../state/actions"
 

@@ -33,6 +33,11 @@ const Image = styled.div`
   height: auto;
   background-size: contain;
   object-fit: contain;
+  ${props =>
+    props.focus &&
+    css`
+      z-index: 4;
+    `}
 `
 
 /* IMG */
@@ -43,13 +48,17 @@ export default ({
   style,
   src,
   device,
+  front,
+  focus,
 }) => (
   <Image
+    focus={focus}
     device={device}
     onClick={() => handleClick()}
     onMouseOver={() => handleHover()}
     onMouseOut={() => handleOut()}
     style={style}
+    front={front}
   >
     <Img loading={"eager"} fluid={src} />
   </Image>

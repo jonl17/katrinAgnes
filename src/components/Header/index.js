@@ -18,7 +18,7 @@ const Header = ({
   infoPageVisable,
 }) => {
   return (
-    <HeaderContainer>
+    <HeaderContainer show={detailPageVisable} device={device}>
       <FooterLeft
         header
         title={detailPageVisable ? chosenArtwork.title : ""}

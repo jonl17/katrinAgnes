@@ -99,3 +99,9 @@ export const setScreenSize = width => ({
   type: SET_SCREEN_SIZE,
   width,
 })
+
+export const SET_FOCUSED_IMAGE_INDEX = "SET_FOCUSED_IMAGE_INDEX"
+export const setFocusedImageIndex = index => ({
+  type: SET_FOCUSED_IMAGE_INDEX,
+  index,
+})
