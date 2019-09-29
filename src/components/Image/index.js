@@ -41,13 +41,15 @@ class Image extends React.Component {
     this.props.dispatch(setArtWorkImages(this.props.images))
   }
   handleClick() {
-    this.props.dispatch(
-      setImagesOnDisplay(
-        initializeImagesOnDisplayArray(this.props.chosenArtWorkImages)
+    if (this.props.focus) {
+      this.props.dispatch(
+        setImagesOnDisplay(
+          initializeImagesOnDisplayArray(this.props.chosenArtWorkImages)
+        )
       )
-    )
+      this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
+    }
     this.props.dispatch(setFocusedImageIndex(this.props.index))
-    // this.props.dispatch(showDetailPage(!this.props.detailPageVisable))
   }
   render() {
     return (

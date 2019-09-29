@@ -18,7 +18,7 @@ const Footer = ({
   device,
 }) => {
   return (
-    <FooterContainer device={device}>
+    <FooterContainer display={detailPageVisable} device={device}>
       <FooterLeft
         footer
         title={detailPageVisable ? chosenArtwork.title : displayTitle}

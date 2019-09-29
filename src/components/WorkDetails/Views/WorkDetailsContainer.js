@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 const Container = styled.div`
   height: 100vh;
@@ -10,7 +10,13 @@ const Container = styled.div`
   box-sizing: border-box;
   padding-bottom: 50px;
   background-color: white;
-  display: ${props => props.display};
+  display: none;
+  ${props =>
+    props.display === "grid" &&
+    css`
+      display: grid;
+      z-index: 99;
+    `}
   align-content: center;
   justify-content: center;
   grid-gap: 50px;

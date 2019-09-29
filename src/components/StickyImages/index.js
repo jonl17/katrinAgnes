@@ -27,6 +27,7 @@ class StickyImages extends React.Component {
         {edges.map((artwork, index) => (
           <Image
             index={index}
+            dimension={edges.length - index}
             focus={focusedImageIndex === index ? "set" : null}
             alt={artwork.node.acf.titill}
             key={artwork.node.id}

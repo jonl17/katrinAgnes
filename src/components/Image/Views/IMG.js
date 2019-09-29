@@ -33,10 +33,19 @@ const Image = styled.div`
   height: auto;
   background-size: contain;
   object-fit: contain;
+  z-index: 0;
   ${props =>
     props.focus &&
     css`
       z-index: 4;
+    `}
+`
+const GatsbyImg = styled(Img)`
+  ${props =>
+    props.focus &&
+    css`
+      box-shadow: 0px 0px 1px 5px rgba(250, 234, 5, 1);
+      transition: 0.2s;
     `}
 `
 
@@ -52,6 +61,7 @@ export default ({
   focus,
 }) => (
   <Image
+    dimension
     focus={focus}
     device={device}
     onClick={() => handleClick()}
@@ -60,6 +70,6 @@ export default ({
     style={style}
     front={front}
   >
-    <Img loading={"eager"} fluid={src} />
+    <GatsbyImg focus={focus} loading={"eager"} fluid={src} />
   </Image>
 )

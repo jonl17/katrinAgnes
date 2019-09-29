@@ -12,6 +12,6 @@ export default styled.div`
   ${props =>
     props.show &&
     css`
-      z-index: 2;
+      z-index: 100;
     `}
 `
