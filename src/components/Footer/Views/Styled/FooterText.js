@@ -23,6 +23,7 @@ export default styled.p`
   ${props =>
     props.device === `mobile` &&
     css`
+      top: 0;
       padding: 35px 10px 0 10px;
       &&:hover {
         cursor: pointer;

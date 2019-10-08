@@ -7,11 +7,13 @@ import {
   setArtWorkImages,
   setImagesOnDisplay,
   setFocusedImageIndex,
+  setMouseCords,
 } from "../../state/actions"
 
 import { initializeImagesOnDisplayArray } from "../../methods"
 
 import IMG from "./Views/IMG"
+import InfoPointer from "../InfoPointer"
 
 class Image extends React.Component {
   constructor(props) {
@@ -51,19 +53,27 @@ class Image extends React.Component {
     }
     this.props.dispatch(setFocusedImageIndex(this.props.index))
   }
+  handleMove(e) {
+    if (this.props.focus) {
+      this.props.dispatch(setMouseCords(e.clientX, e.clientY))
+    }
+  }
   render() {
     return (
-      <IMG
-        focus={this.props.focus}
-        style={this.props.device === `mobile` ? {} : this.props.style}
-        device={this.props.device}
-        handleClick={() => this.handleClick()}
-        handleHover={() => this.handleHover()}
-        handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
-        src={this.props.featuredImage.localFile.childImageSharp.fluid}
-        screenSize={this.props.device}
-        front={this.state.zindex}
-      />
+      <>
+        <IMG
+          focus={this.props.focus}
+          style={this.props.device === `mobile` ? {} : this.props.style}
+          device={this.props.device}
+          handleClick={() => this.handleClick()}
+          handleHover={() => this.handleHover()}
+          handleMove={e => this.handleMove(e)}
+          handleOut={() => this.props.dispatch(toggleDisplayTitle(""))}
+          src={this.props.featuredImage.localFile.childImageSharp.fluid}
+          screenSize={this.props.device}
+          front={this.state.zindex}
+        />
+      </>
     )
   }
 }

@@ -44,7 +44,7 @@ const GatsbyImg = styled(Img)`
   ${props =>
     props.focus &&
     css`
-      box-shadow: 0px 0px 10px 5px rgba(16, 16, 16, 1);
+      box-shadow: 0px 0px 10px 1px rgba(16, 16, 16, 1);
       transition: 0.2s;
     `}
 `
@@ -54,6 +54,7 @@ export default ({
   handleClick,
   handleHover,
   handleOut,
+  handleMove,
   style,
   src,
   device,
@@ -67,6 +68,7 @@ export default ({
     onClick={() => handleClick()}
     onMouseOver={() => handleHover()}
     onMouseOut={() => handleOut()}
+    onMouseMove={e => handleMove(e)}
     style={style}
     front={front}
   >

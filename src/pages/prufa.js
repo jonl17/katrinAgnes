@@ -8,7 +8,7 @@ import Footer from "../components/Footer"
 import StickyImages from "../components/StickyImages"
 import InfoPage from "../components/InfoPage"
 import WorkDetails from "../components/WorkDetails"
-import MobileImages from "../components/MobileImages"
+import MobileView from "../components/MobileView"
 
 const prufa = ({
   data: {
@@ -20,15 +20,22 @@ const prufa = ({
 }) => {
   return (
     <Wrap>
-      <Header info={"Information"} />
-      {device === `mobile` ? (
-        <MobileImages artworks={allWordpressAcfVerk} />
+      {device !== `mobile` ? (
+        <>
+          <Header info={"Information"} />
+          <StickyImages artworks={allWordpressAcfVerk} />
+          <InfoPage
+            texts={allWordpressAcfText}
+            info={allWordpressAcfInformation}
+          />
+          <WorkDetails />
+          <Footer info={"Information"} />
+        </>
       ) : (
-        <StickyImages artworks={allWordpressAcfVerk} />
+        <>
+          <MobileView artworks={allWordpressAcfVerk} />
+        </>
       )}
-      <InfoPage texts={allWordpressAcfText} info={allWordpressAcfInformation} />
-      <WorkDetails />
-      <Footer info={"Information"} />
     </Wrap>
   )
 }
