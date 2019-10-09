@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { distance } from "../../../../../constants/styles"
+import { distance, styles } from "../../../../../constants/styles"
 
 export const Container = styled.div`
   display: ${props => props.display};
@@ -10,5 +10,7 @@ export const Container = styled.div`
   width: 100%;
   background-color: white;
   overflow: scroll;
+  box-sizing: border-box;
+  padding: ${styles.mobileMargin};
   z-index: ${distance.detailPage};
 `
