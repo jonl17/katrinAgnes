@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, InfoPageLeftBox, Instagram } from "../Views/Styled"
+import { Text, InfoPageLeftBox, Instagram, Email } from "../Views/Styled"
 import { graphql, StaticQuery } from "gatsby"
 import { connect } from "react-redux"
 
@@ -23,7 +23,17 @@ const KickOutTheJams = () => (
     render={data => (
       <>
         <Text>{data.allWordpressAcfInformation.edges[0].node.acf.nafn}</Text>
-        <Text>{data.allWordpressAcfInformation.edges[0].node.acf.email}</Text>
+        <Email
+          href={
+            `mailto:` + data.allWordpressAcfInformation.edges[0].node.acf.email
+          }
+        >
+          <Text>
+            katrinagnes
+            <br /> @gmail.com
+          </Text>
+        </Email>
+        <Text />
         <Instagram
           href={
             data.allWordpressAcfInformation.edges[0].node.acf.instagram_linkur

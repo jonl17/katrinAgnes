@@ -23,3 +23,4 @@ export const InfoPageLeftBox = styled.div`
 export const Instagram = styled.a`
   text-decoration: underline !important;
 `
+export const Email = styled.a``
