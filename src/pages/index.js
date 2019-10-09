@@ -8,7 +8,6 @@ import Footer from "../components/Footer"
 import StickyImages from "../components/StickyImages"
 import InfoPage from "../components/InfoPage"
 import WorkDetails from "../components/WorkDetails"
-import MobileImages from "../components/MobileImages"
 
 const index = ({ data, device }) => {
   return (
