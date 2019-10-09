@@ -7,6 +7,9 @@ export const Grid = styled.div`
   grid-template-rows: repeat(1, 1fr);
   grid-template-columns: 1fr;
   grid-gap: 75px;
-  margin: 0 ${styles.mobileMargin} ${styles.mobileMargin} ${styles.mobileMargin};
+  margin-top: 150px;
+  margin-left: ${styles.mobileMargin};
+  margin-right: ${styles.mobileMargin};
+  margin-bottom: ${styles.mobileMargin};
 `
 export const Image = styled(Img)``
