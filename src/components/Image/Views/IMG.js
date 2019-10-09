@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import Img from "gatsby-image"
+import { distance } from "../../../constants/styles"
 
 const Image = styled.div`
   ${props =>
@@ -33,11 +34,11 @@ const Image = styled.div`
   height: auto;
   background-size: contain;
   object-fit: contain;
-  z-index: 0;
+  z-index: ${distance.image};
   ${props =>
     props.focus &&
     css`
-      z-index: 4;
+      z-index: ${distance.imageFocused};
     `}
 `
 const GatsbyImg = styled(Img)`

@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
+import { distance } from "../../../constants/styles"
 
 const FooterContainer = styled.div`
   display: grid;
@@ -8,12 +9,11 @@ const FooterContainer = styled.div`
   height: 100px;
   left: 0;
   bottom: 0;
-  ${props => props.device === `mobile` && css``}
   grid-template-columns: auto 1fr;
   ${props =>
-    props.display &&
+    props.display === `true` &&
     css`
-      z-index: 100;
+      z-index: ${distance.footerDetailPage};
     `}
 `
 

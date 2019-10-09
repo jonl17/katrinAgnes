@@ -10,24 +10,14 @@ import InfoPage from "../components/InfoPage"
 import WorkDetails from "../components/WorkDetails"
 import MobileView from "../components/MobileView"
 
-const prufa = ({
-  data: {
-    allWordpressAcfVerk,
-    allWordpressAcfText,
-    allWordpressAcfInformation,
-  },
-  device,
-}) => {
+const prufa = ({ data: { allWordpressAcfVerk }, device }) => {
   return (
     <Wrap>
       {device !== `mobile` ? (
         <>
           <Header info={"Information"} />
           <StickyImages artworks={allWordpressAcfVerk} />
-          <InfoPage
-            texts={allWordpressAcfText}
-            info={allWordpressAcfInformation}
-          />
+          <InfoPage />
           <WorkDetails />
           <Footer info={"Information"} />
         </>
@@ -76,35 +66,6 @@ export const AllImages = graphql`
             }
             material
             year
-          }
-        }
-      }
-    }
-    allWordpressAcfInformation {
-      edges {
-        node {
-          acf {
-            nafn
-            email
-            instagram_linkur
-            about_texti
-          }
-        }
-      }
-    }
-    allWordpressAcfText {
-      edges {
-        node {
-          acf {
-            titill
-            hofundur
-            year
-            utgefandi
-            pdf {
-              localFile {
-                url
-              }
-            }
           }
         }
       }

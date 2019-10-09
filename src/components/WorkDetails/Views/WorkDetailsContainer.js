@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
+import { distance } from "../../../constants/styles"
 
 const Container = styled.div`
   height: 100vh;
@@ -15,7 +16,7 @@ const Container = styled.div`
     props.display === "grid" &&
     css`
       display: grid;
-      z-index: 99;
+      z-index: ${distance.detailPage};
     `}
   align-content: center;
   justify-content: center;

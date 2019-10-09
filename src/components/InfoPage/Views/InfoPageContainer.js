@@ -1,5 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
+import { distance, styles } from "../../../constants/styles"
 
 const Container = styled.div`
   height: 100%;
@@ -8,16 +9,17 @@ const Container = styled.div`
   top: 0;
   left: 0;
   box-sizing: border-box;
-  z-index: 8;
+  z-index: ${distance.infoPage};
   background-color: white;
   /* grid options */
   display: ${props => props.display};
   ${props =>
     props.device === `mobile` &&
     css`
+      grid-gap: ${styles.mobileMargin};
       grid-template-columns: 1fr;
       overflow-y: scroll;
-      padding: 35px 10px 35px 10px;
+      padding: ${styles.mobileMargin};
     `}
   ${props =>
     props.device === `browser` &&
