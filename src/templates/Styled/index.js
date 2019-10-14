@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { distance, styles } from "../../../../../constants/styles"
+import styled from "styled-components";
+import { distance, styles } from "../../../constants/styles";
 
 export const Container = styled.div`
   display: ${props => props.display};
@@ -9,8 +9,8 @@ export const Container = styled.div`
   height: 100%;
   width: 100%;
   background-color: white;
-  overflow: scroll;
+  overflow-y: scroll;
   box-sizing: border-box;
   padding: ${styles.mobileMargin};
   z-index: ${distance.detailPage};
-`
+`;

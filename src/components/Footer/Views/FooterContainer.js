@@ -10,11 +10,7 @@ const FooterContainer = styled.div`
   left: 0;
   bottom: 0;
   grid-template-columns: auto 1fr;
-  ${props =>
-    props.display === `true` &&
-    css`
-      z-index: ${distance.footerDetailPage};
-    `}
+  z-index: ${distance.footer};
 `
 
 /* Footer Container */

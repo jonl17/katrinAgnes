@@ -1,8 +1,8 @@
 import React from "react"
 import { Container, Text } from "./Styled"
-import ExitButton from "../../../../../ExitButton"
+import ExitButton from "../../../../components/ExitButton"
 import { connect } from "react-redux"
-import { showDetailPage } from "../../../../../../state/actions"
+import { showDetailPage } from "../../../../state/actions"
 
 const Header = ({ detailPageVisable, dispatch, chosenArtwork }) => {
   return (

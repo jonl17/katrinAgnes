@@ -1,5 +1,5 @@
 export const distance = {
-  footer: 7,
+  footer: 11,
   image: 8,
   imageFocused: 9,
   infoPage: 10,

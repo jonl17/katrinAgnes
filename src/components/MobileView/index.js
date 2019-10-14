@@ -2,7 +2,6 @@ import React from "react"
 import ArtWorkDealer from "./components/ArtWorkDealer"
 import Header from "./components/Header"
 import InfoPage from "../InfoPage"
-import ArtworkDetails from "./components/ArtWorkDetails"
 
 const MobileView = ({ artworks }) => {
   return (
@@ -10,7 +9,6 @@ const MobileView = ({ artworks }) => {
       <Header />
       <ArtWorkDealer artworks={artworks} />
       <InfoPage />
-      <ArtworkDetails />
     </>
   )
 }

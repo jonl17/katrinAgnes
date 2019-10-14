@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { styles } from "../../../../../../../constants/styles"
 import Img from "gatsby-image"
 
 export const Grid = styled.div`
