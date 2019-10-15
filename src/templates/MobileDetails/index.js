@@ -5,20 +5,28 @@ import Gallery from "./components/Gallery"
 import { connect } from "react-redux"
 import { location } from "../../constants/other"
 
-const RedirectHome = () => {
-  window.location = `${location.home}`
-}
-
-const mobileDetails = ({ pageContext: { acf }, device }) => {
-  console.log(device)
-  return device !== `mobile` ? (
-    RedirectHome()
-  ) : (
-    <Container>
-      <Header chosenArtwork={acf} />
-      <Gallery images={acf.myndir} />
-    </Container>
-  )
+class mobileDetails extends React.Component {
+  constructor(props) {
+    super(props)
+    this.redirectHome = this.redirectHome.bind(this)
+  }
+  redirectHome = () => {
+    window.location = `${location.home}`
+  }
+  render() {
+    const {
+      pageContext: { acf },
+      device,
+    } = this.props
+    return device !== `mobile` ? (
+      this.redirectHome()
+    ) : (
+      <Container>
+        <Header chosenArtwork={acf} />
+        <Gallery images={acf.myndir} />
+      </Container>
+    )
+  }
 }
 
 const mapStateToProps = state => ({
