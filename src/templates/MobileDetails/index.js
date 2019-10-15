@@ -8,19 +8,15 @@ import { location } from "../../constants/other"
 class mobileDetails extends React.Component {
   constructor(props) {
     super(props)
-    this.redirectHome = this.redirectHome.bind(this)
   }
-  redirectHome = () => {
-    window.location = `${location.home}`
+  componentDidMount() {
+    if (this.props.device !== `mobile`) window.location = `${location.home}`
   }
   render() {
     const {
       pageContext: { acf },
-      device,
     } = this.props
-    return device !== `mobile` ? (
-      this.redirectHome()
-    ) : (
+    return (
       <Container>
         <Header chosenArtwork={acf} />
         <Gallery images={acf.myndir} />
