@@ -73,6 +73,6 @@ export default ({
     style={style}
     front={front}
   >
-    <GatsbyImg focus={focus} loading={"eager"} fluid={src} />
+    <GatsbyImg focus={focus} fluid={src} />
   </Image>
 )

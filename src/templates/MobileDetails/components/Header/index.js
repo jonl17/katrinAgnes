@@ -2,25 +2,20 @@ import React from "react"
 import { Container, Text } from "./Styled"
 import ExitButton from "../../../../components/ExitButton"
 import { connect } from "react-redux"
-import { showDetailPage } from "../../../../state/actions"
 
-const Header = ({ detailPageVisable, dispatch, chosenArtwork }) => {
+const Header = ({ chosenArtwork }) => {
   return (
     <Container>
-      <Text>{chosenArtwork.title}</Text>
+      <Text>{chosenArtwork.titill}</Text>
       <Text>{chosenArtwork.material}</Text>
       <Text>{chosenArtwork.year}</Text>
-      <ExitButton
-        display={detailPageVisable ? "block" : "none"}
-        handleClick={() => dispatch(showDetailPage(!detailPageVisable))}
-      />
+      <ExitButton handleClick={() => window.history.back()} />
     </Container>
   )
 }
 
 const mapStateToProps = state => ({
   detailPageVisable: state.reducer.detailPageVisable,
-  chosenArtwork: state.reducer.chosenArtwork,
 })
 
 export default connect(mapStateToProps)(Header)
