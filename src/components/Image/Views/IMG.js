@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import Img from "gatsby-image"
-import { distance } from "../../../constants/styles"
+import { distance, colors } from "../../../constants/styles"
 
 const Image = styled.div`
   ${props =>
@@ -45,9 +45,13 @@ const GatsbyImg = styled(Img)`
   ${props =>
     props.focus &&
     css`
-      box-shadow: 0px 0px 10px 1px rgba(16, 16, 16, 1);
+      box-shadow: 0px 0px 10px 1px black;
       transition: 0.2s;
     `}
+  &&:hover {
+    box-shadow: 0px 0px 10px 1px ${colors.Yellow};
+    transition: 0.2s;
+  }
 `
 
 /* IMG */

@@ -9,3 +9,6 @@ export const distance = {
 export const styles = {
   mobileMargin: `35px`,
 }
+export const colors = {
+  Yellow: `rgba(255, 255, 0, 0.719)`,
+}

@@ -11,12 +11,7 @@ import ExitButton from "../../../ExitButton"
 import { connect } from "react-redux"
 import { showDetailPage, showInfoPage } from "../../../../state/actions"
 
-const Header = ({
-  dispatch,
-  detailPageVisable,
-  chosenArtWork,
-  infoPageVisable,
-}) => {
+const Header = ({ dispatch, detailPageVisable, infoPageVisable }) => {
   return (
     <Container>
       <InfoTextContainer

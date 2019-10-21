@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 import RegFont from "./Helvetica_Neue/reg.otf"
 import BoldFont from "./Helvetica_Neue/bold.otf"
+import { colors } from "../../constants/styles"
 
 export const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -24,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     ::selection {
     background: white; /* WebKit/Blink Browsers */
-    color: rgba(255, 255, 0, 0.719);
+    color: ${colors.Yellow};
     }
     a {
     text-decoration: none;
